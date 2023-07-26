@@ -1,4 +1,4 @@
-﻿namespace HI.Core
+﻿namespace HI.Mapping
 {
     public class Class1
     {
