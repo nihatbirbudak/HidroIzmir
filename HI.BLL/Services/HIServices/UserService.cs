@@ -17,6 +17,11 @@ namespace HI.BLL.Services.HIServices
             this.uow = uow;
         }
 
+        public void changeRememberMe(User user)
+        {
+            throw new NotImplementedException();
+        }
+
         public bool deleteEntity(int entityId)
         {
             try
@@ -32,9 +37,19 @@ namespace HI.BLL.Services.HIServices
             }
         }
 
+        public User FindwithUsernameandMail(string mailorUserName, string Password)
+        {
+            return  uow.GetRepository<User>().Get(z => z.Password == Password && z.Email == mailorUserName);
+        }
+
         public List<User> getAll()
         {
             return uow.GetRepository<User>().GetAll().ToList();
+        }
+
+        public List<User> getAllUserinRole(int UserId)
+        {
+            throw new NotImplementedException();
         }
 
         public User getEntity(int entityId)

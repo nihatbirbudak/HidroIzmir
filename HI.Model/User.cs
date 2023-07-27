@@ -15,6 +15,7 @@ namespace HI.Model
         [DataType(DataType.Password)]
         public string? Password { get; set; }
         public string? Email { get; set; }
+        public bool rememberMe { get; set; }
 
         public Role Role { get; set; }
 

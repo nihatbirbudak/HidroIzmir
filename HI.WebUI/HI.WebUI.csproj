@@ -27,4 +27,8 @@
     <ProjectReference Include="..\HI.Model\HI.Model.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\Admin\" />
+  </ItemGroup>
+
 </Project>

@@ -10,5 +10,8 @@ namespace HI.BLL.Services.Abstract
 {
     public interface IUserService : IServiceBase<User>
     {
+        User FindwithUsernameandMail(string mailorUserName, string Password);
+        List<User> getAllUserinRole(int UserId);
+        void changeRememberMe(User user);
     }
 }
