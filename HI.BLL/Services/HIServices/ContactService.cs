@@ -63,7 +63,7 @@ namespace HI.BLL.Services.HIServices
         {
             var selected = uow.GetRepository<Contact>().Get(z =>z.Id == entity.Id);
             selected = entity;
-            uow.GetRepository<Category>().Update(selected);
+            uow.GetRepository<Contact>().Update(selected);
             uow.SaveChanges();
             return selected;
         }

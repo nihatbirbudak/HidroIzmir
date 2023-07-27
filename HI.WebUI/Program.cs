@@ -2,8 +2,11 @@ using HI.BLL.Services.Abstract;
 using HI.BLL.Services.HIServices;
 using HI.Core.Data.UnitOfWork;
 using HI.DAL;
+using HI.WebUI.CumtomHandler;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
+using System.Reflection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,15 +20,33 @@ builder.Services.AddSingleton<IContactService, ContactService>();
 builder.Services.AddSingleton<IProductService, ProductService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 
+
+
 //DbContaxt Setting
-var optionBuilder = new DbContextOptionsBuilder<HIDbContext>();
-optionBuilder.UseSqlServer(builder.Configuration.GetConnectionString("HIDbContext"));
-optionBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
-optionBuilder.EnableSensitiveDataLogging();
+var optionsBuilder = new DbContextOptionsBuilder<HIDbContext>();
+optionsBuilder.UseSqlServer(builder.Configuration.GetConnectionString("SqlConnection"));
+optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+optionsBuilder.EnableSensitiveDataLogging();
 
-builder.
+builder.Services.AddSingleton<DbContext>(new HIDbContext(optionsBuilder.Options));
+using (var context = new HIDbContext(optionsBuilder.Options))
+{
+    context.Database.EnsureCreated();
+    context.Database.Migrate();
+}
 
 
+// Login Settings
+builder.Services.AddScoped<IAuthorizationHandler, PoliciesAuthorizationHandler>();
+builder.Services.AddScoped<IAuthorizationHandler, RolesAuthorizationHandler>();
+
+builder.Services.AddAuthentication("CookieAuthentication")
+    .AddCookie("CookieAuthentication", config =>
+    {
+        config.Cookie.Name = "UserLoginCookie";
+        config.LoginPath = "/Login";
+        config.AccessDeniedPath = "/AccessDenied";
+    });
 
 
 var app = builder.Build();
