@@ -39,7 +39,8 @@ namespace HI.BLL.Services.HIServices
 
         public User FindwithUsernameandMail(string mailorUserName, string Password)
         {
-            return  uow.GetRepository<User>().Get(z => z.Password == Password && z.Email == mailorUserName);
+            var user =  uow.GetRepository<User>().Get(z => z.Password == Password && z.Email == mailorUserName);
+            return user;
         }
 
         public List<User> getAll()

@@ -1,4 +1,5 @@
 ﻿using HI.BLL.Services.Abstract;
+using HI.Core.Data.UnitOfWork;
 using HI.Model;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,11 @@ namespace HI.BLL.Services.HIServices
 {
     public class RoleService : IRoleService
     {
+        private readonly IUnitofWork uow;
+        public RoleService(IUnitofWork uow)
+        {
+            this.uow = uow;
+        }
         public bool deleteEntity(int entityId)
         {
             throw new NotImplementedException();
@@ -22,7 +28,7 @@ namespace HI.BLL.Services.HIServices
 
         public Role getEntity(int entityId)
         {
-            throw new NotImplementedException();
+            return uow.GetRepository<Role>().Get(z => z.Id == entityId);
         }
 
         public Role getEntityByName(string entityName)

@@ -1,6 +1,7 @@
 ﻿using HI.BLL.Services.Abstract;
 using HI.Core.Data.UnitOfWork;
 using HI.Model;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -66,6 +67,11 @@ namespace HI.BLL.Services.HIServices
             uow.GetRepository<Contact>().Update(selected);
             uow.SaveChanges();
             return selected;
+        }
+
+        public List<Contact> getIsRead()
+        {
+            return uow.GetRepository<Contact>().GetAll().Where(z => z.IsRead == false).ToList();
         }
     }
 }

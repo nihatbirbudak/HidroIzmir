@@ -28,7 +28,7 @@ namespace HI.WebUI.Controllers
             var user = userService.FindwithUsernameandMail(userModel.UserName, userModel.Password);
             if (user != null)
             {
-                user.Role = roleService.getEntity((int)user.Role.Id);
+                user.Role = roleService.getEntity((int)user.RoleId);
                 var userClaims = new List<Claim>()
                 {
                     new Claim("User",HIConvert.HIJsonSerialize(user))
@@ -46,7 +46,7 @@ namespace HI.WebUI.Controllers
                     user.rememberMe = userModel.RememberMe;
                     userService.updateEntity(user);
                 }
-                return RedirectToAction("HomePage", "Admin");
+                return RedirectToAction("Index", "Admin");
             }
             return View();
         }

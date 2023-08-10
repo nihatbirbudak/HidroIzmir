@@ -1,12 +1,11 @@
-using HI.BLL.Services.Abstract;
+﻿using HI.BLL.Services.Abstract;
 using HI.BLL.Services.HIServices;
 using HI.Core.Data.UnitOfWork;
 using HI.DAL;
 using HI.WebUI.CumtomHandler;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System.Reflection;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +18,7 @@ builder.Services.AddSingleton<ICategoryService, CategoryService>();
 builder.Services.AddSingleton<IContactService, ContactService>();
 builder.Services.AddSingleton<IProductService, ProductService>();
 builder.Services.AddSingleton<IUserService, UserService>();
+builder.Services.AddSingleton<IRoleService, RoleService>();
 
 
 
@@ -64,10 +64,22 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseAuthentication();
+
 app.UseAuthorization();
 
 app.MapControllerRoute(
-    name: "default",
+    name: "AccessDenied",
+    pattern: "AccessDenied",
+    defaults: new { controller = "Login", action = "AccessDenied" });
+app.MapControllerRoute(
+    name: "AdminPage",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "Admin/Giris",
+    pattern: "{controller=Login}/{action=UserLogin}");
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=Admin}/{action=Index}/{id?}");
 
 app.Run();

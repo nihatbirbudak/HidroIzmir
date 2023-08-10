@@ -1,5 +1,6 @@
 ﻿using HI.Model;
 using Microsoft.EntityFrameworkCore;
+using System.Reflection;
 
 namespace HI.DAL
 {
@@ -16,5 +17,11 @@ namespace HI.DAL
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<User> Users { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            base.OnModelCreating(modelBuilder);
+        }
     }
 }

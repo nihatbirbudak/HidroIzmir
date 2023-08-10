@@ -1,0 +1,86 @@
+﻿@model AdminIndexViewModel
+@{
+    ViewData["Title"] = "Admin Home Page";
+    ViewData["Description"] = "Admin Home Page";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+    string isreaded;
+}
+<section>
+    <div class="row-col">
+        <div class="col-sm">
+            <div ui-view class="padding pos-rlt">
+                <div>
+                    <!-- header -->
+                    <div class="m-b">
+                            <div class="btn-group pull-right">
+                                @Html.PagedListPager((IPagedList)Model.Value,page => Url.Action("Index",
+                                new {page}),
+                                new X.PagedList.Web.Common.PagedListRenderOptions{
+                                    LiElementClasses = new string[] { "page-item" },
+                                    PageClasses = new string[] { "page-link" }
+                                })
+                            </div>
+                        <div class="btn-toolbar">
+                            <div class="btn-group dropdown">
+                                <button class="btn white btn-sm dropdown-toggle" data-toggle="dropdown">
+                                    <span class="dropdown-label">Filter</span>
+                                    <span class="caret"></span>
+                                </button>
+                                <div class="dropdown-menu text-left text-sm">
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="Index" asp-route-filter="UnRead" asp-route-page="1">Okunmamış</a>
+                                    <a class="dropdown-item" asp-controller="Admin" asp-action="Index" asp-route-filter="Starred" asp-route-page="1">Tarihe Göre Sırala</a>
+                                </div>
+                            </div>
+                            <div class="btn-group">
+                                <a href="@Context.Request.Path" class="btn btn-sm white" data-toggle="tooltip" data-placement="bottom" data-title="Refresh" data-original-title="" title=""><i class="fa fa-refresh"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- / header -->
+                    <!-- list -->
+                    <div class="list white">
+                        @foreach (var item in Model.Value)
+                        
+                        {
+                            <div class="list-item b-l b-l-2x b-info">
+                                <div class="list-left">
+                                    <span class="w-40 avatar">
+                                        <img src="../assets/images/a0.jpg">
+                                    </span>
+                                </div>
+                                <div class="list-body">
+                                    <div class="pull-right text-muted text-xs">
+                                        <span class="hidden-xs">@item.UploadTime</span>
+                                        <i class="fa fa-paperclip m-l-sm"></i>
+                                    </div>
+                                    <div>
+                                        <a asp-controller="Admin" asp-action="ContactDetail" asp-route-id="@item.Id" class="_500">@item.Name</a>
+                                        <span class="label label-xs m-l-sm text-u-c">
+                                            @{
+                                                if (item.IsRead == true)
+                                                {
+                                                    isreaded = "Okundu";
+                                                }else
+                                                {
+                                                    isreaded = "Okunmadı";
+                                                }
+                                            }@isreaded
+                                        </span>
+                                    </div>
+                                    <div class="text-ellipsis text-muted text-sm">@item.Context</div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                    <!-- / list -->
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+@section LastJs{
+   
+
+}

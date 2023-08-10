@@ -12,8 +12,9 @@ namespace HI.Model
         public string? Name { get; set; }
         public string? Email { get; set; }
         public string? Phone { get; set; }
-        public string? Content { get; set; }
+        public string? Context { get; set; }
         public DateTime UploadTime { get; set; }
+        public bool IsRead { get; set; }
         
     }
 }
