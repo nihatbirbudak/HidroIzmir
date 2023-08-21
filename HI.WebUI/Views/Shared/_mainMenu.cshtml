@@ -1,0 +1,49 @@
+﻿<nav class="main-menu">
+    <div class="navbar-header">
+        <!-- Toggle Button -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+    </div>
+
+    <div class="navbar-collapse collapse clearfix">
+        <ul class="navigation clearfix">
+            <li class="current dropdown">
+                <a asp-action="Index" asp-controller="Home">Anasayfa</a>
+            </li>
+            <li><a asp-action="AboutUs">Hakkımızda</a></li>
+            <li class="dropdown">
+                <a href="#">Hizmetler</a>
+                <ul>
+                    <li><a href="services.html">Our Services</a></li>
+                    <li><a href="services-details.html">Agriculture Processing</a></li>
+                    <li><a href="services-details.html">Chemical Research</a></li>
+                    <li><a href="services-details.html">Mechanical Engineering</a></li>
+                    <li><a href="services-details.html">Metal Engineering</a></li>
+                    <li><a href="services-details.html">Petroleum & Gas</a></li>
+                    <li><a href="services-details.html">Power & Energy</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Kurumsal</a>
+                <ul>
+                    <li><a href="portfolio-masonary.html">Hakkımızda</a></li>
+                    <li><a href="portfolio-three-column.html">Portfolio three column</a></li>
+                    <li><a href="portfolio-details.html">Portfolio Details</a></li>
+                </ul>
+            </li>
+            <li class="dropdown">
+                <a href="#">Ürünler</a>
+                <ul>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="shop-single.html">Shop Single</a></li>
+                    <li><a href="shopping-cart.html">Shoping Cart</a></li>
+                    <li><a href="checkout.html">Check Out</a></li>
+                </ul>
+            </li>
+            <li><a asp-action="Contact">İletişim</a></li>
+        </ul>
+    </div>
+</nav>
