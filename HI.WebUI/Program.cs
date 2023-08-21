@@ -19,6 +19,7 @@ builder.Services.AddSingleton<IContactService, ContactService>();
 builder.Services.AddSingleton<IProductService, ProductService>();
 builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.AddSingleton<IRoleService, RoleService>();
+builder.Services.AddSingleton<IimagePathService, ImagePathService>();
 
 
 

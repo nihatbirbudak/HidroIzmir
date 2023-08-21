@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="dropzone" Version="4.3.0" />
     <PackageReference Include="Microsoft.AspNetCore.Authorization" Version="7.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.9" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.9">
@@ -27,6 +28,11 @@
     <ProjectReference Include="..\HI.BLL\HI.BLL.csproj" />
     <ProjectReference Include="..\HI.DAL\HI.DAL.csproj" />
     <ProjectReference Include="..\HI.Model\HI.Model.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\assets\images\ProductImages\" />
+    <Folder Include="wwwroot\images\ProductImages\" />
   </ItemGroup>
 
 </Project>

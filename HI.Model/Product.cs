@@ -14,7 +14,7 @@ namespace HI.Model
         public string? Title { get; set; }
         public string? Content1 { get; set; }
         public string? Content2 { get; set; }
-        public string? İmagePath { get; set; }
+        public ICollection<ImagePath> ImagePaths { get; set; }
         public bool Active { get; set; }
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }

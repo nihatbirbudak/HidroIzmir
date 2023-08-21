@@ -32,7 +32,13 @@ namespace HI.BLL.Services.HIServices
 
         public List<Product> getAll()
         {
-            return uow.GetRepository<Product>().GetAll().ToList();
+            var list = uow.GetRepository<Product>().GetAll().ToList();
+            var cagtegoryList = uow.GetRepository<Category>().GetAll().ToList();
+            foreach (var item in list)
+            {
+                item.Category = cagtegoryList.FirstOrDefault(z => z.Id == item.CategoryId);
+            }
+            return list;
         }
 
         public Product getEntity(int entityId)

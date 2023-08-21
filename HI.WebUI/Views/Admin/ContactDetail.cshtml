@@ -1,5 +1,46 @@
-﻿@{
+﻿@model ContactDeailViewModel
+@{
     ViewData["Title"] = "Admin Home Page";
     ViewData["Description"] = "Admin Home Page";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
+@section BeginPage{
+    <link rel="stylesheet" href="~/css/mailPage.css" type="text/css" />
+}
+
+<div class="container">
+    <div class="row inbox-wrapper">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
+                    <div class="row">
+                       
+                        <div class="col-lg-12 email-content">
+                            <div class="email-head">
+                                <div class="email-head-sender d-flex align-items-center justify-content-between flex-wrap">
+                                    <div class="d-flex align-items-center">
+                                        <div class="sender d-flex align-items-center">
+                                            <span>Gönderen: </span><a href="#"><span class="text-primary">@Model.Contact.Name</span></a>
+                                        </div>
+                                    </div>
+                                    <div class="date">@Model.Contact.UploadTime</div>
+                                </div>
+                            </div>
+                            <div class="email-body">
+                                <p>
+                                    @Model.Contact.Context
+                                </p>
+                                <div class="email-attachments">
+                                    <p><strong>Gönderici Bilgileri: </strong></p>
+                                    <p><strong>Gönderen: </strong>@Model.Contact.Name</p>
+                                    <p><strong>Mail: </strong>@Model.Contact.Email</p>
+                                    <p><strong>Telefon: </strong>@Model.Contact.Phone</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
