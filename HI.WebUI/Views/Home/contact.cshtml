@@ -1,0 +1,130 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Hidro İzmir - İletişim";
+    ViewData["Description"] = "Hidro izmir Hidrolik sistemler";
+    ViewData["Keywords"] = "hidrolik, izmir hirolik, pnömatik, hidrolik uygulamlar, hidrolik sistemler,hidrolik pompa,hidrolik presler,hidrolik piston,hidrolik pnömatik,hidrolik hortum,hidrolik piston fiyatları,hidrolik pompa fiyatları";
+}
+
+<!--contact-info-->
+<section class="contact-info-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            <div class="column col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box wow zoomInStable" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <!--icon-box-->
+                    <div class="icon-box">
+                        <span class="flaticon-home-1"></span>
+                    </div>
+
+                    <h3>Adres</h3>
+                    <div class="text">Samurlu Mh. 1248 Sk No:18/D-C<br>Aliağa-İZMİR</div>
+                </div>
+            </div>
+
+            <div class="column col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box wow zoomInStable" data-wow-delay="500ms" data-wow-duration="1500ms">
+                    <!--icon-box-->
+                    <div class="icon-box">
+                        <span class="flaticon-mail-3"></span>
+                    </div>
+
+                    <h3>E-Mail</h3>
+                    <div class="text">info@hidroizmir.com<br>satis@hidroizmir.com</div>
+                </div>
+            </div>
+
+            <div class="column col-md-4 col-sm-6 col-xs-12">
+                <div class="info-box wow zoomInStable" data-wow-delay="1000ms" data-wow-duration="1500ms">
+                    <!--icon-box-->
+                    <div class="icon-box">
+                        <span class="flaticon-technology"></span>
+                    </div>
+
+                    <h3>Telefon</h3>
+                    <div class="text">0(232) 618 02 35<br />0(232) 618 02 35</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!--contact-section-->
+<section class="contact-form-section">
+    <div class="auto-container">
+        <div class="sec-title-eight padd-bott-10">
+            <h2>Sizi Arayalım</h2>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="default-form contact-form">
+
+            <form asp-action="ContactAddIndex" method="post">
+                <div class="row clearfix">
+                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                        <input asp-for="@Model.Name" type="text" name="Name" value="" placeholder="Ad Soyad*">
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                        <input asp-for="@Model.Email" type="Email" name="email" value="" placeholder="E-Mail *">
+                    </div>
+
+                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                        <input asp-for="Title" type="text" name="Title" value="" placeholder="Konu *">
+                    </div>
+                    <div class="form-group col-md-6 col-sm-6 col-xs-12">
+                        <input asp-for="@Model.Phone" type="text" name="Phone" value="" placeholder="Telefon *">
+                    </div>
+
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12">
+                        <textarea asp-for="@Model.Context" name="Context" placeholder="Mesajınız *"></textarea>
+                    </div>
+
+                    <div class="form-group col-md-12 col-sm-12 col-xs-12"><button type="submit" class="theme-btn btn-style-three">Gönder</button></div>
+                </div>
+            </form>
+
+        </div>
+        <!--End Contact Form -->
+
+    </div>
+</section>
+
+<!--Map Section-->
+<section class="map-section">
+    <div class="map-outer">
+
+        <!--Map Canvas-->
+        <div class="map-canvas"
+             data-zoom="10"
+             data-lat="23.815811"
+             data-lng="90.412580"
+             data-type="roadmap"
+             data-hue="#fc721e"
+             data-title="Dhaka"
+             data-content="Dhaka 1000-1200, Bangladesh<br><a href='mailto:info@youremail.com'>info@youremail.com</a>"
+             style="height:480px;">
+            <iframe 
+                data-zoom="10"
+                data-lat="23.815811"
+                data-lng="90.412580"
+                data-type="roadmap"
+                data-hue="#fc721e"
+                data-title="Dhaka"
+                data-content="Dhaka 1000-1200, Bangladesh<br><a href='mailto:info@youremail.com'>info@youremail.com</a>"
+                style="height:480px;"
+                class="map-canvas"
+                src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12446.191098326932!2d26.9641483!3d38.7511385!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14ba31f4a4a420b1%3A0x484a44a57e04a572!2sHidro%20%C4%B0zmir!5e0!3m2!1str!2str!4v1693177060254!5m2!1str!2str" 
+                height="480" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </div>
+
+    </div>
+</section>
+
+@section LastJs{
+   
+}

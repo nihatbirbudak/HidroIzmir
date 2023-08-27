@@ -14,9 +14,9 @@ namespace HI.DAL.Seed
         public void Configure(EntityTypeBuilder<Contact> builder)
         {
             builder.HasData(new List<Contact> {
-                (new Contact {Id = 1,Name="Nİhat",Email="nihat@mail.com",Phone="526235863",Context="Merhaba bana Yardımcı Olun",IsRead=false,UploadTime=DateTime.UtcNow }),
-                (new Contact {Id = 2,Name="Beril",Email="nihat@mail.com",Phone="526235863",Context="Merhaba bana Yardımcı Olun",IsRead=false,UploadTime=DateTime.UtcNow }),
-                (new Contact {Id = 3,Name="Selin",Email="nihat@mail.com",Phone="526235863",Context="Merhaba bana Yardımcı Olun",IsRead=false,UploadTime=DateTime.UtcNow }),
+                (new Contact {Id = 1,Name="Nİhat",Email="nihat@mail.com",Phone="526235863",Context="Merhaba bana Yardımcı Olun",IsRead=false,UploadTime=DateTime.UtcNow,Title="Yardım" }),
+                (new Contact {Id = 2,Name="Beril",Email="nihat@mail.com",Phone="526235863",Context="Merhaba bana Yardımcı Olun",IsRead=false,UploadTime=DateTime.UtcNow, Title = "Yardım" }),
+                (new Contact {Id = 3,Name="Selin",Email="nihat@mail.com",Phone="526235863",Context="Merhaba bana Yardımcı Olun",IsRead=false,UploadTime=DateTime.UtcNow, Title="Yardım" }),
             });
         }
     }

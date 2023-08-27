@@ -1,10 +1,305 @@
-﻿@{
+﻿@model Contact
+@{
     ViewData["Title"] = "Hidro İzmir - Anasayfa";
     ViewData["Description"] = "Hidro izmir Hidrolik sistemler";
     ViewData["Keywords"] = "hidrolik, izmir hirolik, pnömatik, hidrolik uygulamlar, hidrolik sistemler,hidrolik pompa,hidrolik presler,hidrolik piston,hidrolik pnömatik,hidrolik hortum,hidrolik piston fiyatları,hidrolik pompa fiyatları";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+<!--Main Slider-->
+<section class="main-slider">
+
+    <div class="tp-banner-container">
+        <div class="tp-banner">
+            <ul>
+
+                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="images/main-slider/1.jpg" data-saveperformance="off" data-title="Awesome Title Here">
+                    <img src="images/main-slider/1.jpg" alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+                    <!--Overlay-->
+                    <div class="overlay-style-one"></div>
+
+                    <div class="tp-caption sfl sfb tp-resizeme"
+                         data-x="left" data-hoffset="15"
+                         data-y="center" data-voffset="-110"
+                         data-speed="1500"
+                         data-start="0"
+                         data-easing="easeOutExpo"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.3"
+                         data-endspeed="1200"
+                         data-endeasing="Power4.easeIn">
+                        <div class="border-title">Hidrolik Sistemler</div>
+                    </div>
+
+                    <div class="tp-caption sfl sfb tp-resizeme"
+                         data-x="left" data-hoffset="15"
+                         data-y="center" data-voffset="10"
+                         data-speed="1500"
+                         data-start="500"
+                         data-easing="easeOutExpo"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.3"
+                         data-endspeed="1200"
+                         data-endeasing="Power4.easeIn">
+                        <h2>Hidrolik Sistemler <br />Ve Çözümler </h2>
+                    </div>
+
+                    <div class="tp-caption sfr sfb tp-resizeme"
+                         data-x="left" data-hoffset="15"
+                         data-y="center" data-voffset="125"
+                         data-speed="1500"
+                         data-start="1000"
+                         data-easing="easeOutExpo"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.3"
+                         data-endspeed="1200"
+                         data-endeasing="Power4.easeIn">
+                        <a asp-action="Products" class="theme-btn btn-style-one">İncele</a> &ensp;&ensp; <a asp-action="Contect" class="theme-btn btn-style-two">Bize Ulaşın</a>
+                    </div>
+
+
+                </li>
+
+                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="images/main-slider/2.jpg" data-saveperformance="off" data-title="Awesome Title Here">
+                    <img src="images/main-slider/2.jpg" alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+                    <!--Overlay Style Two-->
+                    <div class="overlay-style-two"></div>
+
+                    <div class="tp-caption sfl sfb tp-resizeme"
+                         data-x="right" data-hoffset="-15"
+                         data-y="center" data-voffset="-80"
+                         data-speed="1500"
+                         data-start="0"
+                         data-easing="easeOutExpo"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.3"
+                         data-endspeed="1200"
+                         data-endeasing="Power4.easeIn">
+                        <div class="subtitle-text">HİDRO İZMİR'E HOŞGELDİNİZ</div>
+                    </div>
+
+                    <div class="tp-caption text-right sft sfb tp-resizeme"
+                         data-x="right" data-hoffset="-15"
+                         data-y="center" data-voffset="0"
+                         data-speed="1500"
+                         data-start="0"
+                         data-easing="easeOutExpo"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.3"
+                         data-endspeed="1200"
+                         data-endeasing="Power4.easeIn">
+                        <h2>Hizmetlerimiz ve ürünlerimiz hakkında daha detaylı bilgi <br /> almak için bize her zaman ulaşabilirsiniz.</h2>
+                    </div>
+
+                    <div class="tp-caption sfr sfb tp-resizeme"
+                         data-x="right" data-hoffset="-15"
+                         data-y="center" data-voffset="100"
+                         data-speed="1500"
+                         data-start="1000"
+                         data-easing="easeOutExpo"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.3"
+                         data-endspeed="1200"
+                         data-endeasing="Power4.easeIn">
+                        <a asp-action="Contact" class="theme-btn btn-style-one">İletişim</a>
+                    </div>
+
+                </li>
+
+                @*<li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="images/main-slider/3.jpg" data-saveperformance="off" data-title="Awesome Title Here">
+                    <img src="images/main-slider/3.jpg" alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+
+                    <!--Overlay Style Three-->
+                    <div class="overlay-style-three"></div>
+
+                    <div class="tp-caption sfl sfb tp-resizeme"
+                         data-x="center" data-hoffset="0"
+                         data-y="center" data-voffset="-100"
+                         data-speed="1500"
+                         data-start="0"
+                         data-easing="easeOutExpo"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.3"
+                         data-endspeed="1200"
+                         data-endeasing="Power4.easeIn">
+                        <div class="subtitle-text">Pnömatik</div>
+                    </div>
+
+                    <div class="tp-caption text-center sft sfb tp-resizeme"
+                         data-x="center" data-hoffset="0"
+                         data-y="center" data-voffset="-20"
+                         data-speed="1500"
+                         data-start="0"
+                         data-easing="easeOutExpo"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.3"
+                         data-endspeed="1200"
+                         data-endeasing="Power4.easeIn">
+                        <h2></h2>
+                    </div>
+
+                    <div class="tp-caption sfr sfb tp-resizeme"
+                         data-x="center" data-hoffset="0"
+                         data-y="center" data-voffset="90"
+                         data-speed="1500"
+                         data-start="1000"
+                         data-easing="easeOutExpo"
+                         data-splitin="none"
+                         data-splitout="none"
+                         data-elementdelay="0.01"
+                         data-endelementdelay="0.3"
+                         data-endspeed="1200"
+                         data-endeasing="Power4.easeIn">
+                        <a href="#" class="theme-btn btn-style-one">contact us</a>
+                    </div>
+
+
+                </li>*@
+
+            </ul>
+
+            <div class="tp-bannertimer"></div>
+        </div>
+    </div>
+</section>
+<!--Main Slider End-->
+
+<!--services-column-->
+<section class="services-column-two">
+    <div class="auto-container">
+
+        <!--Section Title-->
+        <div class="sec-title-one">
+            <h2>Hizmelerimiz</h2>
+            <div class="text">Öne çıkan hizmelerimiz.</div>
+        </div>
+        <div class="row clearfix">
+
+            <!--Service block two-->
+            <div class="service-block-two col-md-4 col-sm-6 col-xs-12">
+                <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="image-box">
+                        <figure class="image"><a href="services-details.html"><img src="images/resource/service-image-1.jpg" alt=""></a></figure>
+                    </div>
+                    <div class="lower-content">
+                        <div class="text">Aliminyum ve döküm gövde. DB 15 pompalar. İçten dişli pompalar...</div>
+                        <div class="link-box"><a href="services-details.html" class="theme-btn normal-link">İncele<span class="fa fa-long-arrow-right"></span></a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-block-two col-md-4 col-sm-6 col-xs-12">
+                <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="image-box">
+                        <figure class="image"><a href="services-details.html"><img src="images/resource/service-image-2.jpg" alt=""></a></figure>
+                    </div>
+                    <div class="lower-content">
+                        <div class="text">Maksimum verimlilik ve yüksek güvenlik. Standart ve özel üretim seçenekleri. Eaton Vickes...</div>
+                        <div class="link-box"><a href="services-details.html" class="theme-btn normal-link">İncele<span class="fa fa-long-arrow-right"></span></a></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="service-block-two col-md-4 col-sm-6 col-xs-12">
+                <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="image-box">
+                        <figure class="image"><a href="services-details.html"><img src="images/resource/service-image-3.jpg" alt=""></a></figure>
+                    </div>
+                    <div class="lower-content">
+                        <div class="text">Tek sıra teli termoplastik hortumlar. Çift sıra telli termoplastik hortumlar. Tek sıra aramin...</div>
+                        <div class="link-box"><a href="services-details.html" class="theme-btn normal-link">İncele<span class="fa fa-long-arrow-right"></span></a></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</section>
+<!--services-column End-->
+
+<!--Gallery Section-->
+<section class="gallery-section">
+    <div class="auto-container">
+        <!--Carousel Outer-->
+        <div class="carousel-outer">
+            <div class="gallery-carousel">
+
+                @for (int i = 1; i < 15; i++)
+                {
+                    var link = "images/Bayilik-logo/" + i + ".jpg";
+                    <!--Gallery Item-->
+                    <div class="gallery-item">
+                        <div class="inner-box">
+                            <div class="image-box">
+                                 <img src="@link">
+                            </div>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div><!--End Carousel Outer-->
+    </div>
+</section>
+
+<!--Newsletter Style One-->
+<div class="newsletter-style-one" style="background-image:url(images/background/newsletter-bg.png);">
+    <div class="auto-container">
+        <div class="sec-title-two">
+            <h2>Biz Size Ulaşalım</h2>
+        </div>
+
+        <div class="newsletter-form">
+            <form asp-action="ContactAddIndex" method="post">
+                <div class="row clearfix">
+
+                    <div class="col-lg-10 col-md-9 col-sm-12 col-xs-12">
+                        <div class="row clearfix">
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <input asp-for="@Model.Name" type="text" name="name" value="" placeholder="Ad Soyad" required>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <input asp-for="@Model.Email" type="email" name="email" value="" placeholder="Email Adresi" required>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-4 col-xs-12">
+                                <div class="form-group">
+                                    <input asp-for="@Model.Phone"type="text" name="phone" value="" placeholder="Telefon Numaranız" required>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-lg-2 col-md-3 col-sm-12 col-xs-12">
+                        <div class="form-group button-group">
+                            <button type="submit" class="btn-style-three theme-btn">Gönder</button>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </div>
 </div>

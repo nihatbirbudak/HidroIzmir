@@ -7053,7 +7053,7 @@ img{
 
 .contact-info-section .info-box{
 	position:relative;
-	background:url(../images/resource/conatct-info.jpg);
+	/*background:url(../images/resource/conatct-info.jpg);*/
 	background-position:center center;
 	background-repeat:no-repeat;
 	background-size:cover;
