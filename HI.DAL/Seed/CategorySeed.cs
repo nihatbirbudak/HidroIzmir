@@ -14,9 +14,10 @@ namespace HI.DAL.Seed
         public void Configure(EntityTypeBuilder<Category> builder)
         {
             builder.HasData(new List<Category> { 
-                new Category { Id = 1, Name = "Hidrolik Silindirler" },
-                new Category { Id = 2, Name="Pnömatik"},
-                new Category { Id = 3, Name="Elektronik"}
+                new Category { Id = 1, Name = "Hidrolik Güç Üniteleri",MainCategoryId=1 },
+                new Category { Id = 2, Name="Pnömatik Silindirler",MainCategoryId=2},
+                new Category { Id = 3, Name="Pnömatik Valfler",MainCategoryId=2},
+                new Category { Id = 4,Name="Moment Kontrol Sistemleri",MainCategoryId=3},
             });
         }
     }

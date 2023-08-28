@@ -13,11 +13,17 @@ namespace HI.WebUI.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly IContactService contactService;
+        private readonly IProductService productService;
+        private readonly ICategoryService categoryService;
+        private readonly IMainCategoryService mainCategoryService;
 
-        public HomeController(ILogger<HomeController> logger,IContactService contactService)
+        public HomeController(ILogger<HomeController> logger,IContactService contactService,IProductService productService,ICategoryService categoryService,IMainCategoryService mainCategoryService)
         {
             _logger = logger;
             this.contactService = contactService;
+            this.productService = productService;
+            this.categoryService = categoryService;
+            this.mainCategoryService = mainCategoryService;
         }
 
         public IActionResult Index()
@@ -66,7 +72,8 @@ Telefon: {3}", contact.Context, contact.Name,contact.Email,contact.Phone);
             return View();
         }
 
-        public IActionResult Contact() {
+        public IActionResult Contact() 
+        {
 
             return View();
         }
@@ -76,6 +83,21 @@ Telefon: {3}", contact.Context, contact.Name,contact.Email,contact.Phone);
 
             return View();
         }
+
+        public IActionResult ProductList()
+        {
+            var model = new ProductListViewModel();
+            model.Products = productService.getAll();
+            model.Categories = categoryService.getAll();
+            model.MainCategories = mainCategoryService.getAll();
+            return View(model);
+        }
+
+
+
+
+
+
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

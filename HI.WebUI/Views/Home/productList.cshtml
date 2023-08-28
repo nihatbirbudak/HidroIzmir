@@ -1,0 +1,198 @@
+﻿@model ProductListViewModel
+@{
+    ViewData["Title"] = "Hidro İzmir - Anasayfa";
+    ViewData["Description"] = "Hidro izmir Hidrolik sistemler";
+    ViewData["Keywords"] = "hidrolik, izmir hirolik, pnömatik, hidrolik uygulamlar, hidrolik sistemler,hidrolik pompa,hidrolik presler,hidrolik piston,hidrolik pnömatik,hidrolik hortum,hidrolik piston fiyatları,hidrolik pompa fiyatları";
+}
+
+<!--Sidebar blog Page-->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!--Content Side-->
+            <div class="content-side col-lg-9 col-md-8 col-sm-12 col-xs-12 pull-right">
+                <section class="shop-items">
+                    <div class="row clearfix">
+
+                        <!--shop-item-->
+                        <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure class="image"><img src="~/images/resource/service-image-1.jpg" alt=""></figure>
+                                </div>
+                                <!--overlay-box-->
+                                <div class="overlay-box">
+
+                                    <div class="cart-btn"><a class="clearfix" href="shopping-cart.html">İNCELE<span class="fa fa-eye"></span></a></div>
+
+                                </div>
+                            </div>
+
+                            <!--lower-content-->
+                            <div class="lower-content">
+                                <h3><a href="shop-single.html">Circular Saw</a></h3>
+                            </div>
+                        </div>
+                        <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure class="image"><img src="~/images/resource/service-image-1.jpg" alt=""></figure>
+                                </div>
+                                <!--overlay-box-->
+                                <div class="overlay-box">
+
+                                    <div class="cart-btn"><a class="clearfix" href="shopping-cart.html">ADD TO CART <span class="fa fa-eye"></span></a></div>
+
+                                </div>
+                            </div>
+
+                            <!--lower-content-->
+                            <div class="lower-content">
+                                <h3><a href="shop-single.html">Circular Saw</a></h3>
+                            </div>
+                        </div>
+                        <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure class="image"><img src="~/images/resource/service-image-1.jpg" alt=""></figure>
+                                </div>
+                                <!--overlay-box-->
+                                <div class="overlay-box">
+
+                                    <div class="cart-btn"><a class="clearfix" href="shopping-cart.html">ADD TO CART <span class="fa fa-eye"></span></a></div>
+
+                                </div>
+                            </div>
+
+                            <!--lower-content-->
+                            <div class="lower-content">
+                                <h3><a href="shop-single.html">Circular Saw</a></h3>
+                            </div>
+                        </div>
+                        <div class="shop-item col-lg-4 col-md-6 col-sm-6 col-xs-12">
+                            <div class="inner-box">
+                                <div class="image-box">
+                                    <figure class="image"><img src="~/images/resource/service-image-1.jpg" alt=""></figure>
+                                </div>
+                                <!--overlay-box-->
+                                <div class="overlay-box">
+
+                                    <div class="cart-btn"><a class="clearfix" href="shopping-cart.html">ADD TO CART <span class="fa fa-eye"></span></a></div>
+
+                                </div>
+                            </div>
+
+                            <!--lower-content-->
+                            <div class="lower-content">
+                                <h3><a href="shop-single.html">Circular Saw</a></h3>
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+
+                    <!-- Styled Pagination -->
+                    <div class="styled-pagination text-left padd-top-30">
+                        <ul>
+                            <li><a href="#" class="active">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">--</a></li>
+                            <li><a href="#">10</a></li>
+                            <li><a class="next" href="#"><span class="fa fa-long-arrow-right"></span></a></li>
+                        </ul>
+                    </div>
+
+                </section>
+
+            </div>
+            <!--Content Side-->
+            <!--Sidebar-->
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 pull-left">
+                <aside class="sidebar shop-sidebar">
+
+                    <!-- Search Form -->
+                    <div class="sidebar-widget search-box">
+                        <form method="post" action="index.html">
+                            <div class="form-group">
+                                <input type="search" name="search-field" value="" placeholder="Search your Keyword">
+                                <button type="submit"><span class="icon fa fa-search"></span></button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!--category-->
+                    <div class="sidebar-widget category wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="sec-title-seven"><h2>Kategoriler</h2></div>
+
+                        <ul id="myAccordion">
+                            @foreach (var item in Model.MainCategories)
+                            {
+                                <!--Sidebar İtem -->
+                                <li>
+                                    <a class="btn-accordion">
+                                        <span class="fa fa-plus-square-o"></span>@item.Name
+                                    </a>
+                                    <ul>
+                                    @foreach (var item2 in Model.Categories.Where(z=> z.MainCategoryId == item.Id))
+                                    {
+                                        if (item2.MainCategoryId == item.Id)
+                                            {
+                                                <li>
+                                                    @item2.Name
+                                                </li>
+                                            }
+                                    }
+                                    </ul>
+                                </li>
+                            }
+                            <!--Sidebar İtem -->
+                            <li>
+                                <a class="btn-accordion">
+                                    <span class="fa fa-plus-square-o"></span>Cateogri 1
+                                </a>
+                                <ul>
+                                    <li>
+                                        alt kategoriler
+                                    </li>
+                                    <li>
+                                        alt kategoriler
+                                    </li>
+                                    <li>
+                                        alt kategoriler
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+
+
+                            
+
+                          
+
+                        
+                        
+                        
+                        
+                        @* <ul>
+                            @foreach (var item in Model.Categories)
+                            {
+                                <li><a asp-action="ProductList" asp-route-id="@item.Id"><span class="fa fa-plus-square-o"></span>@item.Name</a></li>
+                            }
+                        </ul>*@
+
+                    </div>
+
+                </aside>
+
+
+            </div>
+            <!--Sidebar-->
+
+        </div>
+    </div>
+</div>
+
