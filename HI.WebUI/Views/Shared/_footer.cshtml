@@ -1,4 +1,10 @@
-﻿<!--Main Footer-->
+﻿
+@{
+
+
+}
+
+<!--Main Footer-->
     <footer class="main-footer">
     	
         <!--Footer Upper-->        
@@ -17,9 +23,9 @@
                                     </div>
                                     
                                     <ul class="contact-info">
-                                    	<li><span class="icon flaticon-pin"></span>Samurlu Mh. 1248 Sk. No:18/D-C Aliağa/İZMİR</li>
-                                        <li><span class="icon flaticon-technology"></span>0(232)-618-02-35</li>
-                                        <li><span class="icon flaticon-mail-2"></span>info@hidroizmir.com</li>
+                                    	<li><span class="icon flaticon-pin"></span>@Model.ContactPage.Address @Model.ContactPage.Address2</li>
+                                        <li><span class="icon flaticon-technology"></span>@Model.ContactPage.Phone1</li>
+                                        <li><span class="icon flaticon-mail-2"></span>@Model.ContactPage.Email1</li>
                                     </ul>
                                 
                                 </div>

@@ -1,29 +1,12 @@
-﻿<!-- Preloader -->
+﻿@{
+
+}
+
+<!-- Preloader -->
 <div class="preloader"><div class="loader"><div class="cssload-container"><div class="cssload-speeding-wheel"></div></div></div></div>
 
 <!-- Main Header-->
 <header class="main-header header-style-one">
-    <!-- Header Top -->
-    @*<div class="header-top">
-        <div class="auto-container clearfix">
-            <!--Top Left-->
-            <div class="top-left pull-left">
-                <ul class="links-nav clearfix">
-                    <li><span class="fa fa-check-square-o"></span> No.1 Tedarikçi</li>
-                    <li><span class="fa  fa-support"></span> Certified ISO 9001 : 2008</li>
-                    <li><span class="fa fa-bell-o"></span> Leading Service Provider</li>
-                </ul>
-            </div>
-
-            <!--Top Right-->
-            <div class="top-right pull-right">
-                <ul class="links-nav clearfix">
-                    <li><span class="fa fa-star-o"></span> Award Wining Firm</li>
-                    <li><span class="fa fa-globe"></span> English</li>
-                </ul>
-            </div>
-        </div>
-    </div>*@
     <!-- Header Top End -->
     <!--Header-Upper-->
     <div class="header-upper">
@@ -49,8 +32,8 @@
                     <div class="upper-column info-box">
                         <div class="icon-box"><span class="flaticon-technology"></span></div>
                         <ul>
-                            <li><strong>0(232)-618-02-35</strong></li>
-                            <li>info@hidroizmir.com</li>
+                            <li><strong>@Model.ContactPage.Phone1</strong></li>
+                            <li>@Model.ContactPage.Phone2</li>
                         </ul>
                     </div>
 
@@ -93,7 +76,7 @@
         <div class="auto-container clearfix">
             <!--Logo-->
             <div class="logo pull-left">
-                <a href="index.html" class="img-responsive"><img src="~/images/small-logo.png" alt="Brighton" title="Brighton"></a>
+                <a href="index.html" class="img-responsive"><img src="~/images/small-logo.png" alt="Hidro İzmir" title="Hidro İzmir"></a>
             </div>
 
             <!--Right Col-->

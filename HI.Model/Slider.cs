@@ -9,13 +9,13 @@ namespace HI.Model
 {
     public class Slider : Entity<int>
     {
-        public string Title { get; set; }
-        public string Content { get; set; }
-        public string Content2 { get; set; }
-        public string Link1 { get; set; }
-        public string LinkName1 { get; set; }
-        public string Link2 { get; set; }
-        public string LinkName2 { get; set; }
-        public  string İmageName { get; set; }
+        public string? Title { get; set; }
+        public string? Content { get; set; }
+        public string? Content2 { get; set; }
+        public string? Link1 { get; set; }
+        public string? LinkName1 { get; set; }
+        public string? Link2 { get; set; }
+        public string? LinkName2 { get; set; }
+        public  string? ImageName { get; set; }
     }
 }

@@ -11,5 +11,6 @@ namespace HI.BLL.Services.Abstract
     public interface IProductService : IServiceBase<Product>
     {
         List<Product> GetProdcutstoCategoryId(int id);
+        List<Product> GetHomePageProduct();
     }
 }

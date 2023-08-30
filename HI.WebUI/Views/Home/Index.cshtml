@@ -1,4 +1,4 @@
-﻿@model Contact
+﻿@model IndexViewModel
 @{
     ViewData["Title"] = "Hidro İzmir - Anasayfa";
     ViewData["Description"] = "Hidro izmir Hidrolik sistemler";
@@ -12,8 +12,8 @@
         <div class="tp-banner">
             <ul>
 
-                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="images/main-slider/1.jpg" data-saveperformance="off" data-title="Awesome Title Here">
-                    <img src="images/main-slider/1.jpg" alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="images/main-slider/@Model.Sliders[0].ImageName" data-saveperformance="off" data-title="Awesome Title Here">
+                    <img src="images/main-slider/@Model.Sliders[0].ImageName" alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 
                     <!--Overlay-->
                     <div class="overlay-style-one"></div>
@@ -30,7 +30,7 @@
                          data-endelementdelay="0.3"
                          data-endspeed="1200"
                          data-endeasing="Power4.easeIn">
-                        <div class="border-title">Hidrolik Sistemler</div>
+                        <div class="border-title">@Model.Sliders[0].Title</div>
                     </div>
 
                     <div class="tp-caption sfl sfb tp-resizeme"
@@ -45,7 +45,7 @@
                          data-endelementdelay="0.3"
                          data-endspeed="1200"
                          data-endeasing="Power4.easeIn">
-                        <h2>Hidrolik Sistemler <br />Ve Çözümler </h2>
+                        <h2>@Model.Sliders[0].Content <br />@Model.Sliders[0].Content2 </h2>
                     </div>
 
                     <div class="tp-caption sfr sfb tp-resizeme"
@@ -60,14 +60,14 @@
                          data-endelementdelay="0.3"
                          data-endspeed="1200"
                          data-endeasing="Power4.easeIn">
-                        <a asp-action="Products" class="theme-btn btn-style-one">İncele</a> &ensp;&ensp; <a asp-action="Contect" class="theme-btn btn-style-two">Bize Ulaşın</a>
+                        <a href="@Model.Sliders[0].Link1" class="theme-btn btn-style-one">@Model.Sliders[0].LinkName1</a> &ensp;&ensp; <a href="@Model.Sliders[0].Link2" class="theme-btn btn-style-two">@Model.Sliders[0].LinkName2</a>
                     </div>
 
 
                 </li>
 
-                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="images/main-slider/2.jpg" data-saveperformance="off" data-title="Awesome Title Here">
-                    <img src="images/main-slider/2.jpg" alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="images/main-slider/@Model.Sliders[1].ImageName" data-saveperformance="off" data-title="Awesome Title Here">
+                    <img src="images/main-slider/@Model.Sliders[1].ImageName" alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 
                     <!--Overlay Style Two-->
                     <div class="overlay-style-two"></div>
@@ -84,7 +84,7 @@
                          data-endelementdelay="0.3"
                          data-endspeed="1200"
                          data-endeasing="Power4.easeIn">
-                        <div class="subtitle-text">HİDRO İZMİR'E HOŞGELDİNİZ</div>
+                        <div class="subtitle-text">@Model.Sliders[1].Title</div>
                     </div>
 
                     <div class="tp-caption text-right sft sfb tp-resizeme"
@@ -99,7 +99,7 @@
                          data-endelementdelay="0.3"
                          data-endspeed="1200"
                          data-endeasing="Power4.easeIn">
-                        <h2>Hizmetlerimiz ve ürünlerimiz hakkında daha detaylı bilgi <br /> almak için bize her zaman ulaşabilirsiniz.</h2>
+                        <h2>@Model.Sliders[1].Content <br /> @Model.Sliders[1].Content2</h2>
                     </div>
 
                     <div class="tp-caption sfr sfb tp-resizeme"
@@ -114,13 +114,13 @@
                          data-endelementdelay="0.3"
                          data-endspeed="1200"
                          data-endeasing="Power4.easeIn">
-                        <a asp-action="Contact" class="theme-btn btn-style-one">İletişim</a>
+                        <a href="@Model.Sliders[1].Link1" class="theme-btn btn-style-one">@Model.Sliders[1].LinkName1</a>
                     </div>
 
                 </li>
 
-                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="images/main-slider/3.jpg" data-saveperformance="off" data-title="Awesome Title Here">
-                    <img src="images/main-slider/3.jpg" alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
+                <li data-transition="fade" data-slotamount="1" data-masterspeed="1000" data-thumb="images/main-slider/@Model.Sliders[2].ImageName" data-saveperformance="off" data-title="Awesome Title Here">
+                    <img src="images/main-slider/@Model.Sliders[2].ImageName" alt="" data-bgposition="center top" data-bgfit="cover" data-bgrepeat="no-repeat">
 
                     <!--Overlay Style Three-->
                     <div class="overlay-style-three"></div>
@@ -137,7 +137,7 @@
                          data-endelementdelay="0.3"
                          data-endspeed="1200"
                          data-endeasing="Power4.easeIn">
-                        <div class="subtitle-text">Pnömatik</div>
+                        <div class="subtitle-text">@Model.Sliders[2].Title</div>
                     </div>
 
                     <div class="tp-caption text-center sft sfb tp-resizeme"
@@ -152,7 +152,7 @@
                          data-endelementdelay="0.3"
                          data-endspeed="1200"
                          data-endeasing="Power4.easeIn">
-                        <h2>Pnömatik ürünlerimiz <br /> ve daha fazlası.</h2>
+                        <h2>@Model.Sliders[2].Content <br /> @Model.Sliders[2].Content2</h2>
                     </div>
 
                     <div class="tp-caption sfr sfb tp-resizeme"
@@ -167,7 +167,7 @@
                          data-endelementdelay="0.3"
                          data-endspeed="1200"
                          data-endeasing="Power4.easeIn">
-                        <a href="#" class="theme-btn btn-style-one">İletişim</a>
+                        <a href="@Model.Sliders[2].Link1" class="theme-btn btn-style-one">@Model.Sliders[2].LinkName1</a>
                     </div>
 
 
@@ -192,46 +192,22 @@
         </div>
         <div class="row clearfix">
 
-            <!--Service block two-->
-            <div class="service-block-two col-md-4 col-sm-6 col-xs-12">
-                <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="image-box">
-                        <figure class="image"><a href="services-details.html"><img src="~/images/resource/service-image-1.jpg" alt=""></a></figure>
-                    </div>
-                    <div class="lower-content">
-                        <div class="text">Aliminyum ve döküm gövde. DB 15 pompalar. İçten dişli pompalar...</div>
-                        <div class="link-box"><a href="services-details.html" class="theme-btn normal-link">İncele<span class="fa fa-long-arrow-right"></span></a></div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="service-block-two col-md-4 col-sm-6 col-xs-12">
-                <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="image-box">
-                        <figure class="image"><a href="services-details.html"><img src="images/resource/service-image-2.jpg" alt=""></a></figure>
-                    </div>
-                    <div class="lower-content">
-                        <div class="text">Maksimum verimlilik ve yüksek güvenlik. Standart ve özel üretim seçenekleri. Eaton Vickes...</div>
-                        <div class="link-box"><a href="services-details.html" class="theme-btn normal-link">İncele<span class="fa fa-long-arrow-right"></span></a></div>
+            @foreach (var item in Model.Products)
+            {
+                <!--Service block two-->
+                <div class="service-block-two col-md-4 col-sm-6 col-xs-12">
+                    <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <div class="image-box">
+                            <figure class="image"><a href="services-details.html"><img src="~/images/ProductImages/@item.HomePageImageName" alt=""></a></figure>
+                        </div>
+                        <div class="lower-content">
+                            <div class="text twoLinesTruncate">@item.Content1</div>
+                            <div class="link-box"><a asp-action="ProductDetail" asp-route-id="@item.Id" class="theme-btn normal-link">İncele<span class="fa fa-long-arrow-right"></span></a></div>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <div class="service-block-two col-md-4 col-sm-6 col-xs-12">
-                <div class="inner-box wow fadeIn" data-wow-delay="0ms" data-wow-duration="1500ms">
-                    <div class="image-box">
-                        <figure class="image"><a href="services-details.html"><img src="images/resource/service-image-3.jpg" alt=""></a></figure>
-                    </div>
-                    <div class="lower-content">
-                        <div class="text">Tek sıra teli termoplastik hortumlar. Çift sıra telli termoplastik hortumlar. Tek sıra aramin...</div>
-                        <div class="link-box"><a href="services-details.html" class="theme-btn normal-link">İncele<span class="fa fa-long-arrow-right"></span></a></div>
-                    </div>
-                </div>
-            </div>
-
+            }
         </div>
-
-
     </div>
 </section>
 <!--services-column End-->
@@ -243,18 +219,18 @@
         <div class="carousel-outer">
             <div class="gallery-carousel">
 
-                @for (int i = 1; i < 15; i++)
+                @foreach (var item in Model.Dealers)
                 {
-                    var link = "images/Bayilik-logo/" + i + ".jpg";
                     <!--Gallery Item-->
                     <div class="gallery-item">
                         <div class="inner-box">
                             <div class="image-box">
-                                 <img src="@link">
+                                <img alt="@item.Name" src="images/Bayilik-logo/@item.ImageName">
                             </div>
                         </div>
                     </div>
                 }
+                
             </div>
         </div><!--End Carousel Outer-->
     </div>
@@ -275,18 +251,18 @@
                         <div class="row clearfix">
                             <div class="col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group">
-                                    <input asp-for="@Model.Name" type="text" name="name" value="" placeholder="Ad Soyad" required>
+                                    <input asp-for="@Model.Contact.Name" type="text" name="name" value="" placeholder="Ad Soyad" required>
                                 </div>
                             </div>
 
                             <div class="col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group">
-                                    <input asp-for="@Model.Email" type="email" name="email" value="" placeholder="Email Adresi" required>
+                                    <input asp-for="@Model.Contact.Email" type="email" name="email" value="" placeholder="Email Adresi" required>
                                 </div>
                             </div>
                             <div class="col-md-4 col-sm-4 col-xs-12">
                                 <div class="form-group">
-                                    <input asp-for="@Model.Phone"type="text" name="phone" value="" placeholder="Telefon Numaranız" required>
+                                    <input asp-for="@Model.Contact.Phone"type="text" name="phone" value="" placeholder="Telefon Numaranız" required>
                                 </div>
                             </div>
                         </div>

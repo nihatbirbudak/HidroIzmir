@@ -19,5 +19,7 @@ namespace HI.Model
         public int CategoryId { get; set; }
         public virtual Category Category { get; set; }
         public string? Tags { get; set; }
+        public bool ShowHomePage { get; set; }
+        public string HomePageImageName { get; set; }
     }
 }

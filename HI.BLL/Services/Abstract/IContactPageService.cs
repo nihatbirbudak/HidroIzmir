@@ -10,5 +10,6 @@ namespace HI.BLL.Services.Abstract
 {
     public interface IContactPageService : IServiceBase<ContactPage>
     {
+        ContactPage getEntity();
     }
 }

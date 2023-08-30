@@ -31,6 +31,10 @@ namespace HI.BLL.Services.HIServices
         {
             return uow.GetRepository<ContactPage>().GetAll().FirstOrDefault();
         }
+        public ContactPage getEntity()
+        {
+            return uow.GetRepository<ContactPage>().GetAll().FirstOrDefault();
+        }
 
         public ContactPage getEntityByName(string entityName)
         {

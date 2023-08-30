@@ -25,7 +25,7 @@ namespace HI.DAL.Seed
                         LinkName2 = "İncele",
                         Link1 = "/iletisim",
                         Link2 = "/urunler",
-                        İmageName = "1.jpg",
+                        ImageName = "1.jpg",
                     },
                     new Slider {
                         Id =2,
@@ -34,7 +34,7 @@ namespace HI.DAL.Seed
                         Content2 = "almak için bize her zaman ulaşabilirsiniz.",
                         LinkName1 = "İletişim",
                         Link1 = "/iletisim",
-                        İmageName = "2.jpg",
+                        ImageName = "2.jpg",
                     },
                     new Slider {
                         Id =3,
@@ -43,7 +43,7 @@ namespace HI.DAL.Seed
                         Content2 = "ve daha fazlası.",
                         LinkName1 = "İletişim",
                         Link1 = "/iletisim",
-                        İmageName = "3.jpg",
+                        ImageName = "3.jpg",
                     },
                 }
                 );

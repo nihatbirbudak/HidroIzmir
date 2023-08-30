@@ -23,7 +23,7 @@ namespace HI.BLL.Services.HIServices
 
         public List<Slider> getAll()
         {
-            throw new NotImplementedException();
+            return uow.GetRepository<Slider>().GetAll().ToList();
         }
 
         public Slider getEntity(int entityId)

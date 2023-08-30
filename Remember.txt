@@ -1,0 +1,3 @@
+﻿1 - Ana Sayfa için Prodcut fotografı secilmeli 
+	Ürün resimlerini yüklerken rastgele bir resmi ana sayfa resmi olarak ayarla (HomePageImageName). daha sonra secim yapabilmesi için bir sayfada bunua ayarlarsın.
+2 - Tüm sayfaları dinamik olarak değiştrir ContactPage Her sayfada olması akti halde sayfa hata verir.  

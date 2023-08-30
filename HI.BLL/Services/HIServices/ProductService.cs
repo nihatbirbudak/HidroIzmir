@@ -56,6 +56,11 @@ namespace HI.BLL.Services.HIServices
             throw new NotImplementedException();
         }
 
+        public List<Product> GetHomePageProduct()
+        {
+            return uow.GetRepository<Product>().Get(z => z.ShowHomePage == true, null, null, null).ToList();
+        }
+
         public List<Product> GetProdcutstoCategoryId(int id)
         {
             var list = uow.GetRepository<Product>().Get(z => z.CategoryId == id,null,null).ToList();

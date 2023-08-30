@@ -25,3 +25,9 @@ body {
     display: none;
     padding-left:10px;
 }
+.twoLinesTruncate {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}

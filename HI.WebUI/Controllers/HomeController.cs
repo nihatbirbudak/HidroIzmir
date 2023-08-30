@@ -1,6 +1,7 @@
 ﻿using HI.BLL.Services.Abstract;
 using HI.Model;
 using HI.WebUI.Models;
+using HI.WebUI.Models.HomeViewModel;
 using MailKit.Net.Smtp;
 using Microsoft.AspNetCore.Mvc;
 using MimeKit;
@@ -16,19 +17,40 @@ namespace HI.WebUI.Controllers
         private readonly IProductService productService;
         private readonly ICategoryService categoryService;
         private readonly IMainCategoryService mainCategoryService;
+        private readonly ISliderService sliderService;
+        private readonly IAboutService aboutService;
+        private readonly IContactPageService contactPageService;
+        private readonly IDealersService dealersService;
 
-        public HomeController(ILogger<HomeController> logger,IContactService contactService,IProductService productService,ICategoryService categoryService,IMainCategoryService mainCategoryService)
+        public HomeController(ILogger<HomeController> logger,
+            IContactService contactService,
+            IProductService productService,
+            ICategoryService categoryService,
+            IMainCategoryService mainCategoryService,
+            ISliderService sliderService,
+            IAboutService aboutService,
+            IContactPageService contactPageService,
+            IDealersService dealersService)
         {
             _logger = logger;
             this.contactService = contactService;
             this.productService = productService;
             this.categoryService = categoryService;
             this.mainCategoryService = mainCategoryService;
+            this.sliderService = sliderService;
+            this.aboutService = aboutService;
+            this.contactPageService = contactPageService;
+            this.dealersService = dealersService;
         }
 
         public IActionResult Index()
         {
-            return View();
+            var model = new IndexViewModel();
+            model.Sliders = sliderService.getAll();
+            model.Dealers = dealersService.getAll();
+            model.ContactPage = contactPageService.getEntity();
+            model.Products = productService.GetHomePageProduct();
+            return View(model);
         }
         [HttpPost]
         public IActionResult ContactAddIndex(Contact contact) 
@@ -74,14 +96,18 @@ Telefon: {3}", contact.Context, contact.Name,contact.Email,contact.Phone);
 
         public IActionResult Contact() 
         {
-
-            return View();
+            var model = new ContactViewModel();
+            model.ContactPage = contactPageService.getEntity();
+            return View(model);
         }
 
         public IActionResult About(string name)
         {
-            ViewBag.Name = name;
-            return View();
+            var model = new AboutViewModel();
+            model.Name = name;
+            model.About = aboutService.getEntity(1);
+            model.ContactPage = contactPageService.getEntity();
+            return View(model);
         }
 
         public IActionResult ProductList()
@@ -90,6 +116,7 @@ Telefon: {3}", contact.Context, contact.Name,contact.Email,contact.Phone);
             model.Products = productService.getAll();
             model.Categories = categoryService.getAll();
             model.MainCategories = mainCategoryService.getAll();
+            model.ContactPage = contactPageService.getEntity();
             return View(model);
         }
 
@@ -99,6 +126,7 @@ Telefon: {3}", contact.Context, contact.Name,contact.Email,contact.Phone);
             model.Products = productService.GetProdcutstoCategoryId(id);
             model.Categories = categoryService.getAll();
             model.MainCategories = mainCategoryService.getAll();
+            model.ContactPage = contactPageService.getEntity();
             return View(model);
         }
 
