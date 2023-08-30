@@ -21,6 +21,10 @@ builder.Services.AddSingleton<IUserService, UserService>();
 builder.Services.AddSingleton<IRoleService, RoleService>();
 builder.Services.AddSingleton<IimagePathService, ImagePathService>();
 builder.Services.AddSingleton<IMainCategoryService, MainCategoryService>();
+builder.Services.AddSingleton<IAboutService, AboutService>();
+builder.Services.AddSingleton<IContactPageService, ContactPageService>();
+builder.Services.AddSingleton<ISliderService, SliderService>();
+builder.Services.AddSingleton<IDealersService, DealerService>();
 
 
 
@@ -74,14 +78,45 @@ app.MapControllerRoute(
     name: "AccessDenied",
     pattern: "AccessDenied",
     defaults: new { controller = "Login", action = "AccessDenied" });
+
 app.MapControllerRoute(
-    name: "AdminPage",
+    name: "Anasayfa",
+    pattern: "Anasayfa",
+    defaults: new { controller = "Home", action = "Index" });
+
+app.MapControllerRoute(
+    name: "Contact",
+    pattern: "iletisim",
+    defaults: new { controller = "Home", action = "Contact" });
+
+app.MapControllerRoute(
+    name: "ProductList",
+    pattern: "urunler",
+    defaults: new { controller = "Home", action = "ProductList" });
+
+app.MapControllerRoute(
+    name: "ProductListDetail",
+    pattern: "urunler/{id:int}",
+    defaults: new { controller = "Home", action = "ProductListDetail" });
+
+app.MapControllerRoute(
+    name: "About",
+    pattern: "kurumsal/{name}",
+    defaults: new { controller = "Home", action = "About" });
+
+app.MapControllerRoute(
+    name: "default2",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 app.MapControllerRoute(
-    name: "Admin/Giris",
+    name: "default3",
     pattern: "{controller=Login}/{action=UserLogin}");
+
 app.MapControllerRoute(
-    name: "default",
-    pattern: "{controller=Admin}/{action=Index}/{id?}");
+    name: "Admin",
+    pattern: "Admin",
+    defaults: new { controller = "Admin", action = "Index" });
+
+app.MapDefaultControllerRoute();
 
 app.Run();

@@ -13,8 +13,8 @@
             <li>
                 <a asp-action="Index" asp-controller="Home">Anasayfa</a>
             </li>
-            <li><a asp-action="About">Hakkımızda</a></li>
-            <li class="dropdown">
+            <li><a asp-action="About" asp-route-name="hakkimizda">Hakkımızda</a></li>
+            @*<li class="dropdown">
                 <a href="#">Hizmetler</a>
                 <ul>
                     <li><a href="services.html">Our Services</a></li>
@@ -25,13 +25,13 @@
                     <li><a href="services-details.html">Petroleum & Gas</a></li>
                     <li><a href="services-details.html">Power & Energy</a></li>
                 </ul>
-            </li>
+            </li>*@
             <li class="dropdown">
-                <a href="#">Kurumsal</a>
+                <a asp-action="About" asp-route-name="About">Kurumsal</a>
                 <ul>
-                    <li><a href="portfolio-masonary.html">Hakkımızda</a></li>
-                    <li><a href="portfolio-three-column.html">Portfolio three column</a></li>
-                    <li><a href="portfolio-details.html">Portfolio Details</a></li>
+                    <li><a asp-action="About" asp-route-name="hakkimizda">Hakkımızda</a></li>
+                    <li><a asp-action="About" asp-route-name="misyonumuz">Misyonumuz</a></li>
+                    <li><a asp-action="About" asp-route-name="vizyonumuz">Vizyonumuz</a></li>
                 </ul>
             </li>
             <li>

@@ -19,6 +19,10 @@ namespace HI.DAL
         public DbSet<Product> Products { get; set; }
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
+        public DbSet<About> Abouts { get; set; }
+        public DbSet<ContactPage> ContactPages { get; set; }
+        public DbSet<Slider> Sliders { get; set; }
+        public DbSet<Dealer> Dealers { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

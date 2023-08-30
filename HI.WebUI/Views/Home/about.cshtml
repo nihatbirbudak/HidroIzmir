@@ -1,7 +1,12 @@
 ﻿@{
-    ViewData["Title"] = "Hidro İzmir - Hakkımızda";
+    ViewData["Title"] = "Hidro İzmir - " + ViewBag.Name;
     ViewData["Description"] = "Hidro izmir Hidrolik sistemler";
     ViewData["Keywords"] = "hidrolik, izmir hirolik, pnömatik, hidrolik uygulamlar, hidrolik sistemler,hidrolik pompa,hidrolik presler,hidrolik piston,hidrolik pnömatik,hidrolik hortum,hidrolik piston fiyatları,hidrolik pompa fiyatları";
+}
+@{
+    var activeTab = "active-tab";
+    var activeBtn = "active-btn";
+
 }
 
 <!--tabs-section-->
@@ -13,41 +18,43 @@
                 <div class="tabs-box tabs-style-one">
                     <!--Tab Buttons-->
                     <ul class="tab-buttons clearfix">
-                        <li data-tab="#tab-one" class="tab-btn active-btn">Biz Kimiz</li>
-                        <li data-tab="#tab-two" class="tab-btn">Misyonumuz</li>
-                        <li data-tab="#tab-three" class="tab-btn">Vizyonumuz</li>
+                        <li data-tab="#tab-one" class="tab-btn @if(ViewBag.Name == "hakkimizda"){@activeBtn}">Biz Kimiz</li>
+                        <li data-tab="#tab-two" class="tab-btn @if(ViewBag.Name == "misyonumuz"){@activeBtn}">Misyonumuz</li>
+                        <li data-tab="#tab-three" class="tab-btn @if (ViewBag.Name == "vizyonumuz"){@activeBtn}">Vizyonumuz</li>
                     </ul>
 
                     <!--Tabs Content-->
                     <div class="tabs-content">
+
                         <!--Tab / Active Tab-->
-                        <div class="tab active-tab" id="tab-one">
+                        <div class="tab @if(ViewBag.Name == "hakkimizda"){@activeTab}" id="tab-one">
                             <div class="text-content">
                                 <div class="text">
-                                    The Love Boat promises something for everyone be from me and the card rached would say federal impossible to this bee time there is no stopping us the Love Boat soon will be the Love Boat in a promises something for a everyone be from me and the card attached would say federal impossible making another run all became the Brady come and listen to a story about a man Boat soon.
+                                    1 The Love Boat promises something for everyone be from me and the card rached would say federal impossible to this bee time there is no stopping us the Love Boat soon will be the Love Boat in a promises something for a everyone be from me and the card attached would say federal impossible making another run all became the Brady come and listen to a story about a man Boat soon.
                                     </div>
-                                
                             </div>
                         </div>
-
                         <!--Tab-->
-                        <div class="tab" id="tab-two">
+                        <div class="tab @if(ViewBag.Name == "misyonumuz"){@activeTab}" id="tab-two">
                             <div class="text-content">
                                 <div class="text">
-                                    The Love Boat promises something for everyone be from me and the card rached would say federal impossible to this bee time there is no stopping us the Love Boat soon will be the Love Boat in a promises something for a everyone be from me and the card attached would say federal impossible making another run all became the Brady come and listen to a story about a man Boat soon.
+                                    2 The Love Boat promises something for everyone be from me and the card rached would say federal impossible to this bee time there is no stopping us the Love Boat soon will be the Love Boat in a promises something for a everyone be from me and the card attached would say federal impossible making another run all became the Brady come and listen to a story about a man Boat soon.
                                 </div>
                             </div>
                         </div>
 
                         <!--Tab-->
-                        <div class="tab" id="tab-three">
+                        <div class="tab @if(ViewBag.Name == "vizyonumuz"){@activeTab}" id="tab-three">
                             <div class="text-content">
                                 <div class="text">
-                                    The Love Boat promises something for everyone be from me and the card rached would say federal impossible to this bee time there is no stopping us the Love Boat soon will be the Love Boat in a promises something for a everyone be from me and the card attached would say federal impossible making another run all became the Brady come and listen to a story about a man Boat soon.
+                                    3 The Love Boat promises something for everyone be from me and the card rached would say federal impossible to this bee time there is no stopping us the Love Boat soon will be the Love Boat in a promises something for a everyone be from me and the card attached would say federal impossible making another run all became the Brady come and listen to a story about a man Boat soon.
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
+
                 </div>
             </div>
 

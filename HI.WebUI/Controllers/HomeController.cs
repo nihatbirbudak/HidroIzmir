@@ -78,9 +78,9 @@ Telefon: {3}", contact.Context, contact.Name,contact.Email,contact.Phone);
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult About(string name)
         {
-
+            ViewBag.Name = name;
             return View();
         }
 
@@ -93,6 +93,14 @@ Telefon: {3}", contact.Context, contact.Name,contact.Email,contact.Phone);
             return View(model);
         }
 
+        public IActionResult ProductListDetail(int id) 
+        {
+            var model = new ProductListViewModel();
+            model.Products = productService.GetProdcutstoCategoryId(id);
+            model.Categories = categoryService.getAll();
+            model.MainCategories = mainCategoryService.getAll();
+            return View(model);
+        }
 
 
 

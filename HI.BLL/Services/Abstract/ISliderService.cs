@@ -8,8 +8,7 @@ using System.Threading.Tasks;
 
 namespace HI.BLL.Services.Abstract
 {
-    public interface IProductService : IServiceBase<Product>
+    public interface ISliderService : IServiceBase<Slider>
     {
-        List<Product> GetProdcutstoCategoryId(int id);
     }
 }

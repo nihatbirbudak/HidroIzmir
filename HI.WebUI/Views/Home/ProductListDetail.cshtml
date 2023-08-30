@@ -19,7 +19,8 @@
                         @if (Model.Products == null)
                         {
                             <h4 class="text-center pt-2">Ürün Bulunamadı</h4>
-                        }else
+                        }
+                        else
                         {
                             @foreach (var item in Model.Products)
                             {
@@ -43,20 +44,20 @@
                                 </div>
                             }
                         }
-                        
+
 
                     </div>
 
                     @*<!-- Styled Pagination -->
                     <div class="styled-pagination text-left padd-top-30">
-                        <ul>
-                            <li><a href="#" class="active">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">--</a></li>
-                            <li><a href="#">10</a></li>
-                            <li><a class="next" href="#"><span class="fa fa-long-arrow-right"></span></a></li>
-                        </ul>
+                    <ul>
+                    <li><a href="#" class="active">1</a></li>
+                    <li><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                    <li><a href="#">--</a></li>
+                    <li><a href="#">10</a></li>
+                    <li><a class="next" href="#"><span class="fa fa-long-arrow-right"></span></a></li>
+                    </ul>
                     </div>*@
 
                 </section>
@@ -67,7 +68,7 @@
             <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12 pull-left">
                 <aside class="sidebar shop-sidebar">
 
-    
+        
 
                     <!--category-->
                     <div class="sidebar-widget category wow fadeInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
@@ -82,16 +83,16 @@
                                         <span class="fa fa-plus-square-o"></span>@item.Name
                                     </a>
                                     <ul>
-                                        @foreach (var item2 in Model.Categories.Where(z=> z.MainCategoryId == item.Id))
-                                        { 
+                                        @foreach (var item2 in Model.Categories.Where(z => z.MainCategoryId == item.Id))
+                                        {
                                             <li>
                                                 <a asp-action="ProductListDetail" asp-route-id="@item2.Id">@item2.Name</a>
-                                            </li>      
+                                            </li>
                                         }
                                     </ul>
                                 </li>
                             }
-                            
+
                         </ul>
                     </div>
                 </aside>
