@@ -31,3 +31,8 @@ body {
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
 }
+.box-image-product{
+    height: 85px!important;
+    width: 120px!important;
+
+}

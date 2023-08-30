@@ -1,4 +1,5 @@
 ﻿using HI.BLL.Services.Abstract;
+using HI.BLL.Services.HIServices;
 using HI.Model;
 using HI.WebUI.Models;
 using HI.WebUI.Models.HomeViewModel;
@@ -21,6 +22,7 @@ namespace HI.WebUI.Controllers
         private readonly IAboutService aboutService;
         private readonly IContactPageService contactPageService;
         private readonly IDealersService dealersService;
+        private readonly IimagePathService imagePathService;
 
         public HomeController(ILogger<HomeController> logger,
             IContactService contactService,
@@ -30,7 +32,8 @@ namespace HI.WebUI.Controllers
             ISliderService sliderService,
             IAboutService aboutService,
             IContactPageService contactPageService,
-            IDealersService dealersService)
+            IDealersService dealersService,
+            IimagePathService imagePathService)
         {
             _logger = logger;
             this.contactService = contactService;
@@ -41,6 +44,7 @@ namespace HI.WebUI.Controllers
             this.aboutService = aboutService;
             this.contactPageService = contactPageService;
             this.dealersService = dealersService;
+            this.imagePathService = imagePathService;
         }
 
         public IActionResult Index()
@@ -131,7 +135,14 @@ Telefon: {3}", contact.Context, contact.Name,contact.Email,contact.Phone);
         }
 
 
-
+        public IActionResult ProductDetail(int id)
+        {
+            var model = new ProdcutDetailHomeViewModel();
+            model.ContactPage = contactPageService.getEntity();
+            model.Product = productService.getEntity(id);
+            model.ImagePaths = imagePathService.getImagePathtoProdcutId(id);
+            return View(model);
+        }
 
 
 

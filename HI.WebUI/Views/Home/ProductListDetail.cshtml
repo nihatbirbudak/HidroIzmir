@@ -32,14 +32,14 @@
                                         <!--overlay-box-->
                                         <div class="overlay-box">
 
-                                            <div class="cart-btn"><a class="clearfix" href="shopping-cart.html">İNCELE<span class="fa fa-eye"></span></a></div>
+                                            <div class="cart-btn"><a class="clearfix" asp-action="ProductDetail" asp-route-id="@item.Id">İNCELE<span class="fa fa-eye"></span></a></div>
 
                                         </div>
                                     </div>
 
                                     <!--lower-content-->
                                     <div class="lower-content">
-                                        <h3><a href="shop-single.html">@item.Name</a></h3>
+                                        <h3><a asp-action="ProductDetail" asp-route-id="@item.Id">@item.Name</a></h3>
                                     </div>
                                 </div>
                             }

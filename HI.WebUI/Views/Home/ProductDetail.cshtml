@@ -1,0 +1,170 @@
+﻿@model ProdcutDetailHomeViewModel
+@{
+    ViewData["Title"] =  Model.Product.Name;
+    ViewData["Description"] = Model.Product.Content1;
+    ViewData["Keywords"] = Model.Product.Tags;
+    int s = 1;
+    int y = 1;
+    var activeBtn = "active-btn";
+    var activeTab = "active_tab";
+}
+
+
+<!--shop-details-->
+<div class="shop-details">
+    <div class="auto-container">
+
+        <!--shop-single-->
+        <div class="shop-single">
+            <div class="product-details">
+                <!--Basic Details-->
+                <div class="basic-details">
+                    <div class="row clearfix">
+
+                        <div class="image-column col-md-7 col-sm-12 col-xs-12">
+                            <!--item-tabs-->
+							  <div class="item-tabs">
+
+                                <div class="tabs-box tabs-style-two">
+                                    <!--Tab Buttons-->
+                                    <ul class="tab-buttons">
+                                        @if (Model.ImagePaths.Count() == 0)
+                                        {
+                                            <li data-tab="#tab-one" class="tab-btn active-btn "><img class="box-image-product"  src="~/images/productimages/service-image-1.jpg" /></li>
+                                            <li data-tab="#tab-two" class="tab-btn"><img class="box-image-product" src="~/images/productimages/service-image-1.jpg" /></li>
+                                            <li data-tab="#tab-three" class="tab-btn "><img class="box-image-product" src="~/images/productimages/service-image-1.jpg" /></li>
+                                        }else
+                                        {
+                                            @foreach (var item in Model.ImagePaths)
+                                            {
+                                                var tabName = "#tab-";
+                                                tabName += s;
+                                                <li data-tab="@tabName" class="tab-btn @if(s == 1){@activeBtn}"><img class="box-image-product" src="~/images/ProductImages//@item.Path" alt="" /></li>
+                                                s++;
+                                            }
+                                        }
+                                    </ul>
+
+                                    <!--Tabs Content-->
+                                    <div class="tabs-content">
+                                        @if (Model.ImagePaths.Count() == 0)
+                                        {
+                                            <div class="tab active-tab" id="tab-one">
+                                                <a class="lightbox-image" title="Image Caption here" href="~/images/productimages/service-image-1.jpg"><img src="~/images/productimages/service-image-1.jpg" /></a>
+                                            </div>
+                                            <div class="tab " id="tab-two">
+                                                <a class="lightbox-image" title="Image Caption here" href="~/images/productimages/service-image-1.jpg"><img src="~/images/productimages/service-image-1.jpg" /></a>
+                                            </div> 
+                                            <div class="tab" id="tab-three">
+                                                <a class="lightbox-image" title="Image Caption here" href="~/images/productimages/service-image-1.jpg"><img src="~/images/productimages/service-image-1.jpg" /></a>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            @foreach (var item in Model.ImagePaths)
+                                            {
+                                                <!--Tab-->
+                                                var tabName = "#tab-";
+                                                tabName += y;
+                                                <div class="tab if(y == 1){@activeTab}" id="@tabName">
+                                                    <a class="lightbox-image" title="Image Caption here" href="~/images/productimages/service-image-1.jpg"><img src="~/images/productimages/service-image-1.jpg" /></a>
+                                                </div>
+                                                y++;
+                                            }
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="info-column col-md-5 col-sm-12 col-xs-12">
+
+                            <div class="details-header">
+                                <h4>@Model.Product.Name</h4>
+                            </div>
+
+                            <div class="text">@Model.Product.Description</div>
+
+                        </div>
+                    </div>
+                </div>
+                <!--Basic Details-->
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!--prod-info-tabs-->
+<section class="prod-info-tabs">
+    <div class="auto-container">
+
+        <div class="tabs-box tabs-style-three">
+            <!--Tab Buttons-->
+            <ul class="tab-buttons">
+            @if (Model.Product.ContentName1 != null)
+            {
+                    <li data-tab="#tab-four" class="tab-btn active-btn">@Model.Product.ContentName1</li>
+                }
+            @if (Model.Product.ContentName2 != null)
+            {
+                    <li data-tab="#tab-five" class="tab-btn">@Model.Product.ContentName2</li>
+            }
+            @if (Model.Product.ContentName3 != null)
+            {
+                <li data-tab="#tab-six" class="tab-btn">@Model.Product.ContentName3</li>
+            }
+            </ul>
+
+            <!--Tabs Content-->
+            <div class="tabs-content">
+
+                
+
+                <!--Tab / Active Tab-->
+                @if (Model.Product.Content1 != null)
+                {
+                    <!--Tab-->
+                    <div class="tab active-tab" id="tab-four">
+                        <div class="sec-title-one">
+                            <h2>@Model.Product.ContentName1</h2>
+                        </div>
+                        <div class="text-content">
+                            <p>
+                                @Model.Product.Content1
+                            </p>
+                        </div>
+                    </div>
+                }
+                @if (Model.Product.Content2 != null)
+                {
+                    <!--Tab-->
+                    <div class="tab" id="tab-five">
+                        <div class="sec-title-one">
+                            <h2>@Model.Product.ContentName2</h2>
+                        </div>
+                        <div class="text-content">
+                            <p>
+                                @Model.Product.Content2
+                            </p>
+                        </div>
+                    </div>
+                }
+                @if (Model.Product.Content3 != null)
+                {
+                    <!--Tab-->
+                    <div class="tab" id="tab-six">
+                        <div class="sec-title-one">
+                            <h2>@Model.Product.ContentName3</h2>
+                        </div>
+                        <div class="text-content">
+                            <p>
+                                @Model.Product.Content3
+                            </p>
+                        </div>
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</section>
