@@ -25,10 +25,6 @@
 
                     <li>
                         <a href="/Admin">
-                            <span class="nav-icon">
-                                <i class="fa fa-home"></i>
-
-                            </span>
                             <span class="nav-text">Ana Sayfa</span>
                         </a>
                     </li>
@@ -39,12 +35,6 @@
                                 <i class="fa fa-caret-down"></i>
                             </span>
                             
-                            <span class="nav-icon">
-                                <i class="material-icons">
-                                    &#xe5c3;
-                                    <span ui-include="'../assets/images/i_1.svg'"></span>
-                                </i>
-                            </span>
                             <span class="nav-text">Ürün Yönetimi</span>
                         </a>
                         <ul class="nav-sub">
@@ -61,10 +51,38 @@
                         </ul>
                     </li>
                     <li>
+                        <a asp-controller="Admin" asp-action="CategoryList">
+                            <span class="nav-text">Kategori Ayarları</span>
+                        </a>
+                    </li>
+                     <br />
+                    <li class="nav-header hidden-folded">
+                        <small class="text-muted">Sayfa Düzeni</small>
+                    </li>
+
+                    <li>
+                        <a href="/Admin">
+                            <span class="nav-text">Kurumsal</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Admin">
+                            <span class="nav-text">İletişim</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Admin">
+                            <span class="nav-text">Anasayfa Slider</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/Admin">
+                            <span class="nav-text">Markalar</span>
+                        </a>
+                    </li>
+                    <br />
+                    <li>
                         <a asp-controller="Login" asp-action="Logout">
-                            <span class="nav-icon">
-                                <i class="fa fa-sign-out"></i>
-                            </span>
                             <span class="nav-text">Çıkış Yap</span>
                         </a>
                     </li>

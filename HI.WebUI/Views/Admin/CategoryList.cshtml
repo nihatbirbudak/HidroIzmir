@@ -1,0 +1,123 @@
+﻿@model CategoryListViewModel
+@{
+    ViewData["Title"] = "Admin Home Page";
+    ViewData["Description"] = "Admin Home Page";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+@{
+    var counter = 1;
+    
+}
+<div class="padding">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="box">
+                <div class="box-header">
+                    <h2>Ana Kategori Ekle</h2>
+                    <small>Yeni bir kategori eklemek için bu alanı kullanın. Eklemek istediğiniz kategoriyi yazarak ekle buyonuna basınız. Bu alanda eklene kategoriler ürünler kısmındaki menü çubuğuna otomatik eklenir.</small>
+                </div>
+                <div class="box-divider m-0"></div>
+                <div class="box-body p-v-md">
+                    <form asp-action="MainCategoryAdd">
+                        <div class="row row-sm">
+                            <div class="col-xs-3">
+                                <input asp-for="@Model.MainCategory.Name" type="text" class="form-control" placeholder="Ana Kategori İsmi">
+                            </div>
+                            <div class="col-xs-3">
+                                <button class="btn btn-primary pointer" type="submit">Ekle</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="box">
+                <div class="box-header">
+                    <h2>Ana Kategori Sil</h2>
+                    <small>Aşağıda Açılır butonda şeçilen kategoriyi siler.(Silme işleminin gerçekleşmesi için kategoriye ait hiç bir ürün olmamalıdır yoksa işlem gerçekleşmez)</small>
+                </div>
+                <div class="box-divider m-0"></div>
+                <div class="box-body p-v-md">
+                    <div class="row row-sm">
+                        <div class="col-xs-3">
+                            <div class="dropdown">
+                                <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">
+                                    Category Sil
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    @foreach (var item in Model.MainCategories)
+                                    {
+                                        <li><a onclick="return confirm('Silmek istediğinize emin misiniz?')" asp-action="MainCategoryDelete" asp-route-id="@item.Id">@item.Name</a></li>
+                                    }
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+    
+
+
+    <div class="list-group m-b">
+
+        @foreach (var mainCategory in Model.MainCategories)
+        {
+            var collapsName = "collapse";
+            collapsName += counter;
+            <a data-toggle="collapse" href="#@collapsName" class="list-group-item justify-content-between">
+                <strong>@mainCategory.Name</strong>
+                <span>
+                    <span class="label info">@Model.Categories.Where(z => z.MainCategoryId == mainCategory.Id).Count()</span>
+                    <span class="text-muted ml-1"><i class="glyphicon glyphicon-chevron-right"></i></span>
+                </span>
+            </a>
+
+            <div id="@collapsName" class="panel-collapse collapse">
+                <ul class="list-group">
+                    @foreach (var category in Model.Categories)
+                    {
+                            @if (category.MainCategoryId == mainCategory.Id)
+                            {
+                            <li class="list-group-item justify-content-between pl-5">
+                                    @category.Name
+                                <span>
+                                    <a asp-action="CategoryDelete" asp-route-id="@category.Id" onclick="return confirm('Eğer herhangi bir ürün ekli ise silinemez. Silmek istediğine emin misin?')"><span class="text-muted ml-1"><i class="fa fa-remove"></i></span></a>
+                                </span>
+                            </li>
+                            }
+                    }
+                    <!-- Ekle Butonu-->
+                    @* <li class="list-group-item">
+                <a href="" class="btn btn-primary btn-sm">+ Yeni Ekle</a>
+                </li>*@
+                    <li class="list-group-item pl-5">
+                        <!--Alt Kategori Ekleme Formu-->
+                        <form asp-action="CategoryAdd" method="post">
+                            <div class="row row-sm ">
+                                <div class="col-xs-1">
+                                    <input asp-for="@Model.Category.Name" type="text" class="form-control" placeholder="Alt Kategori İsmi">
+                                    <input asp-for="@Model.Category.MainCategoryId" value="@mainCategory.Id" hidden>
+                                </div>
+                                <div class="col-xs-3">
+                                    <button class="btn btn-primary btn-sm pointer" type="submit">Ekle</button>
+                                </div>
+                            </div>
+                        </form>
+                    </li>
+                    
+                </ul>
+            </div>
+            counter++;
+        }
+        
+       
+    </div>
+    
+    
+</div>

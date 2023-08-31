@@ -3,7 +3,6 @@
     ViewData["Title"] = "Admin Home Page";
     ViewData["Description"] = "Admin Home Page";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
-    string isreaded;
 }
 <section>
     <div class="row-col">
@@ -55,17 +54,12 @@
                                     </div>
                                     <div>
                                         <a asp-controller="Admin" asp-action="ContactDetail" asp-route-id="@item.Id" class="_500">@item.Name</a>
-                                        <span class="label label-xs m-l-sm text-u-c">
-                                            @{
-                                                if (item.IsRead == true)
-                                                {
-                                                    isreaded = "Okundu";
-                                                }else
-                                                {
-                                                    isreaded = "Okunmadı";
-                                                }
-                                            }@isreaded
-                                        </span>
+                                        @if (item.IsRead == false)
+                                        {
+                                            <span class="label label-xs m-l-sm text-u-c">
+                                                Okunmadı
+                                            </span>
+                                        }
                                     </div>
                                     <div class="text-ellipsis text-muted text-sm">@item.Context</div>
                                 </div>

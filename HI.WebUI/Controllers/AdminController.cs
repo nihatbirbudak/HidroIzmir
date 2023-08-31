@@ -1,15 +1,10 @@
 ﻿using HI.BLL.Services.Abstract;
-using HI.BLL.Services.HIServices;
 using HI.Model;
-using HI.WebUI.Core;
-using HI.WebUI.Models;
 using HI.WebUI.Models.AdminModel;
-using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using X.PagedList;
-using System.Web;
-using System.Net;
+
 
 namespace HI.WebUI.Controllers
 {
@@ -21,13 +16,20 @@ namespace HI.WebUI.Controllers
         private readonly IProductService productService;
         private readonly ICategoryService categoryService;
         private readonly IimagePathService imagePathService;
-        public AdminController(IContactService contactService,IUserService userService, IProductService productService,ICategoryService categoryService,IimagePathService imagePathService) 
+        private readonly IMainCategoryService mainCategoryService;
+        public AdminController(IContactService contactService,
+            IUserService userService,
+            IProductService productService,
+            ICategoryService categoryService,
+            IimagePathService imagePathService,
+            IMainCategoryService mainCategoryService) 
         {
             this.contactService = contactService;
             this.productService = productService;
             this.userService = userService;
             this.categoryService = categoryService;
             this.imagePathService = imagePathService;
+            this.mainCategoryService = mainCategoryService;
         }
         public ActionResult Index(string filter, int page = 1)
         {
@@ -59,25 +61,8 @@ namespace HI.WebUI.Controllers
             return View(model);
         }
 
-        [HttpPost]
-        public ActionResult CategoryAdd(Category category)
-        {
-            categoryService.newEntity(category);
-            return RedirectToAction("ProductDetail");
-        }
-        public ActionResult CategoryDelete(int id)
-        {
-            if ( productService.getAll().FirstOrDefault(z => z.CategoryId == id) == null )
-            {
-                categoryService.deleteEntity(id);
-            }
-            return RedirectToAction("ProductDetail");
-        }
-        public ActionResult CategoryDetail()
-        {
-            return View();
-        }
 
+        #region Product
         public ActionResult ProductDetail(int id) 
         {
             var model = new ProductDetailViewModel();
@@ -139,8 +124,9 @@ namespace HI.WebUI.Controllers
             productService.deleteEntity(id);
             return RedirectToAction("ProductDetail");
         }
+        #endregion
 
-        
+        #region File
         public async void AddFile(IFormFile file, Product product)
         {
             if (file != null)
@@ -195,7 +181,6 @@ namespace HI.WebUI.Controllers
             }
             return RedirectToAction("FileUpdate");
         }
-
         public IActionResult FileDelete(int id)
         {
             var imagePath = imagePathService.getEntity(id);
@@ -204,5 +189,52 @@ namespace HI.WebUI.Controllers
             imagePathService.deleteEntity(id);
             return RedirectToAction("FileUpdate",new {id = route});
         }
+        #endregion
+
+        #region Category
+        public IActionResult CategoryList() 
+        {
+            var model = new CategoryListViewModel();
+            model.User = CurrentUser;
+            model.MainCategories = mainCategoryService.getAll();
+            model.Categories = categoryService.getAll();
+            return View(model); 
+        }
+        public IActionResult MainCategoryAdd(MainCategory mainCategory) 
+        {
+            if (!mainCategoryService.getAll().Any(z => z.Name == mainCategory.Name))
+            {
+                mainCategoryService.newEntity(mainCategory);
+            }
+            return RedirectToAction("CategoryList");
+        }
+        public IActionResult MainCategoryDelete(int id) 
+        {
+            if (!categoryService.getAll().Any(z => z.MainCategoryId == id))
+            {
+                mainCategoryService.deleteEntity(id);
+            }
+            return RedirectToAction("CategoryList");
+        }
+
+        [HttpPost]
+        public ActionResult CategoryAdd(Category category)
+        {
+            if (!categoryService.getAll().Any(z => z.Name == category.Name))
+            {
+                categoryService.newEntity(category);
+            }
+            return RedirectToAction("CategoryList");
+        }
+        public ActionResult CategoryDelete(int id)
+        {
+            if (!productService.getAll().Any(z => z.CategoryId == id))
+            {
+                categoryService.deleteEntity(id);
+            }
+            return RedirectToAction("ProductDetail");
+        }
+
+        #endregion
     }
 }

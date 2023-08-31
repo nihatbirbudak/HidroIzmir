@@ -83,7 +83,9 @@
                                 <h4>@Model.Product.Name</h4>
                             </div>
 
-                            <div class="text">@Model.Product.Description</div>
+                            <div class="text">
+                                @Html.Raw(Model.Product.Description)
+                            </div>
 
                         </div>
                     </div>
@@ -131,7 +133,7 @@
                         </div>
                         <div class="text-content">
                             <p>
-                                @Model.Product.Content1
+                                @Html.Raw(Model.Product.Content1)
                             </p>
                         </div>
                     </div>
@@ -145,7 +147,7 @@
                         </div>
                         <div class="text-content">
                             <p>
-                                @Model.Product.Content2
+                                @Html.Raw(Model.Product.Content2)
                             </p>
                         </div>
                     </div>
@@ -159,7 +161,7 @@
                         </div>
                         <div class="text-content">
                             <p>
-                                @Model.Product.Content3
+                                @Html.Raw(Model.Product.Content3)
                             </p>
                         </div>
                     </div>

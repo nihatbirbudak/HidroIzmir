@@ -1,3 +1,16 @@
-﻿1 - Ana Sayfa için Prodcut fotografı secilmeli 
+﻿
+
+1 - Ana Sayfa için Prodcut fotografı secilmeli 
 	Ürün resimlerini yüklerken rastgele bir resmi ana sayfa resmi olarak ayarla (HomePageImageName). daha sonra secim yapabilmesi için bir sayfada bunua ayarlarsın.
-2 - Tüm sayfaları dinamik olarak değiştrir ContactPage Her sayfada olması akti halde sayfa hata verir.  
+
+2 - Tüm sayfaları dinamik olarak değiştrir ContactPage Her sayfada olmalı aksi halde sayfa hata verir.  
+
+3 - Footer Düzelt
+
+4 - Ana sayfa iletişim formunun arka planını düzeltmeyi unutma
+
+5 - Ürünler Listelenirken Aktif olup olmadığına bakılmalı bunu düzelt
+
+6 - Tags Kısmını ürün listeleme sayfasında kullanmayı unutma SEO için keyword alanında ekle
+
+7 - 

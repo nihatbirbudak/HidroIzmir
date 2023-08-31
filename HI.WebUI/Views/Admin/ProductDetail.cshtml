@@ -5,51 +5,7 @@
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
 <div class="padding">
- 
-    <div class="box">
-        <div class="box-header">
-            <h2>Kategori Ekle</h2>
-            <small>Yeni bir kategori eklemek için bu alanı kullanın. Eklemek istediğiniz kategoriyi yazarak ekle buyonuna basınız. Bu alanda eklene kategoriler ürünler kısmındaki menü çubuğuna otomatik eklenir.</small>
-        </div>
-        <div class="box-divider m-0"></div>
-        <div class="box-body p-v-md">
-            <form asp-action="CategoryAdd">
-            <div class="row row-sm">
-                <div class="col-xs-3">
-                    <input asp-for="Category.Name" type="text" class="form-control" placeholder="Kategori İsmi">
-                </div>
-                <div class="col-xs-3">
-                    <button type="submit">Ekle</button>
-                </div>
-            </div>
-            </form>
-        </div>
-    </div>
-    <div class="box">
-        <div class="box-header">
-            <h2>Kategori Sil</h2>
-            <small>Aşağıda Açılır butonda şeçilen kategoriyi siler.(Silme işleminin gerçekleşmesi için kategoriye ait hiç bir ürün olmamalıdır yoksa işlem gerçekleşmez)</small>
-        </div>
-        <div class="box-divider m-0"></div>
-        <div class="box-body p-v-md">
-            <div class="row row-sm">
-                <div class="col-xs-3">
-                    <div class="dropdown">
-                        <button class="btn btn-danger dropdown-toggle" type="button" data-toggle="dropdown">
-                            Category Sil
-                            <span class="caret"></span>
-                        </button>
-                        <ul class="dropdown-menu">
-                            @foreach (var item in Model.Categories)
-                            {
-                                <li><a asp-action="CategoryDelete" asp-route-id="@item.Id">@item.Name</a></li>
-                            }
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="box">
         <div class="box-header">
             <h2>Ürünler</h2>
@@ -97,7 +53,7 @@
                             <td>
                                 <a type="button" class="btn btn-primary btn-sm" asp-action="ProductChange" asp-route-id="@item.Id"><span class="fa fa-pencil"></span></a>
                                 <a type="button" class="btn btn-warning btn-sm" asp-action="FileUpdate" asp-route-id="@item.Id"><span class="fa fa-picture-o"></span></a>
-                                <a type="button" class="btn btn-danger btn-sm" asp-action="ProductDelete" asp-route-id="@item.Id"><span class="fa fa-remove"></span></a>
+                                <a type="button" onclick="return confirm('Silmek istediğine emin misin?')" class="btn btn-danger btn-sm removeBtn" asp-action="ProductDelete" asp-route-id="@item.Id"><span class="fa fa-remove"></span></a>
                             </td>
                         </tr>
                     }

@@ -1,60 +1,151 @@
 ﻿@model ProdcutAddViewModel
 @{
-    ViewData["Title"] = "Admin Home Page";
-    ViewData["Description"] = "Admin Home Page";
+    ViewData["Title"] = "Admin Ürün Ekle";
+    ViewData["Description"] = "Admin Ürün Ekle";
     Layout = "~/Views/Shared/_adminLayout.cshtml";
 }
-<div class="col-md-12">
+@section Header{
+    
+}
+<div class="col-md-12 mt-2">
     <div class="box">
         <div class="box-header">
             <h2>Ürün Ekle</h2>
-            <small>Use Bootstrap's predefined grid classes to align labels and groups of form controls in a horizontal layout by adding .form-horizontal to the form. Doing so changes .form-groups to behave as grid rows, so no need for .row.</small>
+            <small>
+                <strong>Lütfen Ürün Ekleme Talimatlarına Okuyun</strong><br />
+                * Eklek istedğiniz ürünün bilgilerini doldurun Ürün Adı, Ürün Başlığı, Kategor, Anahtar Kelimeler ve Açıklama kısımları boş bırakılmamalıdır.<br />
+                * Öncelikle ürün ekle kısmından ürünü ekledikten sonra ürün resimleri <strong>Ürün Yönetimi > Ürün Listele </strong>kısmından eklenmektedir.<br />
+                * Zorunlu Alanalr (*) ile belirtilmiştir lütfen bu alanları doldurmadan ürünü eklemeyin.<br />
+                * Her Ürünün sayfasında 3 bölüm bulunmaktadır bu bölümler zorunlu değildir eğer ürünle ilgili daha fazla ayrıntı vermek isterseniz bu bölümleri kullanabilirsiniz.
+                <br /><strong>Örneğin:</strong> 1. Bölüm Başlığına Özellikleri yazıp, İçerik Bölüm 1 Kısmına Text Editörünü kullanarak ürün özelliklerini belirte bir tablo veya yazı yazarsanız bu yazdıklarınız
+                ürünün sayfsında aşağıda açıklama olarak gözükecektir. Bunun gibi en fazla <strong>3</strong>  bölüm oluşturulabilir ve bu alan zorunlu değişldir.
+            </small>
         </div>
         <div class="box-divider m-0"></div>
         <div class="box-body">
             <form asp-action="ProductAdd"  enctype="multipart/form-data">
                 <div class="form-group row">
-                    <label class="col-sm-2 form-control-label">Ürün Adı</label>
-                    <div class="col-sm-10">
-                        <input asp-for="@Model.Product.Name" type="text" class="form-control">
+                    <label class="col-sm-2 form-control-label">Ürün Adı*</label>
+                    <div class="col-sm-4">
+                        <input asp-for="@Model.Product.Name" type="text" class="form-control" placeholder="Zorunlu Alan*">
+                    </div>
+                    <label class="col-sm-2 form-control-label">Ürün Başlığı*</label>
+                    <div class="col-sm-4">
+                        <input asp-for="@Model.Product.Title" type="text" class="form-control" placeholder="Zorunlu Alan*">
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label class="col-sm-2 form-control-label">Ürün Başlığı</label>
-                    <div class="col-sm-10">
-                        <input asp-for="@Model.Product.Title" type="text" class="form-control">
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label  class="col-sm-2 form-control-label">İçerik Bölüm 1</label>
-                    <div class="col-sm-10">
-                        <textarea asp-for="@Model.Product.Content1" class="form-control" rows="2"></textarea>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label class="col-sm-2 form-control-label">İçerik Bölüm 2</label>
-                    <div class="col-sm-10">
-                        <textarea asp-for="@Model.Product.Content2" class="form-control" rows="2"></textarea>
-                    </div>
-                </div>
-                <div class="form-group row">
-                    <label for="inputPassword3" class="col-sm-2 form-control-label">Kategori</label>
+                    <label for="inputPassword3" class="col-sm-2 form-control-label">Kategori*</label>
                     <div class="col-sm-10">
                         <select class="form-control c-select" dat-placeholder="Kategori Seçin" asp-for="@Model.Product.CategoryId" asp-items="@(new SelectList(Model.Categories,"Id","Name"))">
                         </select>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Açıklama*</label>
+                    <div class="col-sm-10">
+                        <textarea asp-for="@Model.Product.Description" id="editor4" class="form-control" placeholder="Zorunlu Alan*"></textarea>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Anahtar Kelimeler*</label>
+                    <div class="col-sm-10">
+                        <input asp-for="@Model.Product.Tags" type="text" class="form-control" placeholder="hidrolik,hidro izmir,">
+                        <small>* Bulan SEO açısından önemldir her cümle yukarda gözüktüğü gibi virgül ( , ) ile ayırarak yazılmadır.</small>
+
+                    </div>
+                </div>
+
+                <!--1. Bölüm-->
+                <br />
+                <p>1. Bölüm</p>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Başlık</label>
+                    <div class="col-sm-4">
+                        <input asp-for="@Model.Product.ContentName1" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">İçerik</label>
+                    <div class="col-sm-10">
+                        <textarea asp-for="@Model.Product.Content1" id="editor1" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <!--2. Bölüm-->
+                <br />
+                <p>2. Bölüm</p>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Başlık</label>
+                    <div class="col-sm-4">
+                        <input asp-for="@Model.Product.ContentName2" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">İçerik</label>
+                    <div class="col-sm-10">
+                        <textarea asp-for="@Model.Product.Content2" id="editor2" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <!--1. Bölüm-->
+                <br />
+                <p>3. Bölüm</p>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Başlık</label>
+                    <div class="col-sm-4">
+                        <input asp-for="@Model.Product.ContentName3" type="text" class="form-control">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">İçerik</label>
+                    <div class="col-sm-10">
+                        <textarea asp-for="@Model.Product.Content3" id="editor3" class="form-control"></textarea>
+                    </div>
+                </div>
+                
                 <div class="checkbox">
                     <label>
-                        <input asp-for="@Model.Product.Active" type="checkbox"> Yayınla
+                        Yayınla
                     </label>
+                    <label class="ui-switch m-t-xs m-r">
+                        <input asp-for="@Model.Product.Active" type="checkbox" checked>
+                        <i></i>
+                    </label>
+                    
                 </div>
                 <div class="form-group row m-t-md">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn white">Ekle</button>
+                        <button type="submit" class="btn btn-primary" style="cursor: pointer;">Ekle</button>
                     </div>
                 </div>
             </form>
         </div>
     </div>
 </div>
+
+@section LastJs{
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#editor1'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editor2'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editor3'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#editor4'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+
+}
