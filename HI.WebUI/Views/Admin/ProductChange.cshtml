@@ -24,6 +24,7 @@
         <div class="box-divider m-0"></div>
         <div class="box-body">
             <form asp-action="ProductAdd"  enctype="multipart/form-data">
+                <input asp-for="@Model.Product.Id" value="@Model.Product.Id" hidden/>
                 <div class="form-group row">
                     <label class="col-sm-2 form-control-label">Ürün Adı*</label>
                     <div class="col-sm-4">

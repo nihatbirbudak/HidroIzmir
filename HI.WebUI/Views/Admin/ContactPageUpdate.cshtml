@@ -1,0 +1,68 @@
+﻿@model ContactPageUpdateViewMode
+@{
+    ViewData["Title"] = "Admin Ürün Düzenle";
+    ViewData["Description"] = "Admin Ürün Düzenle";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+@section Header{
+
+}
+<div class="col-md-12 mt-2">
+    <div class="box">
+        <div class="box-header">
+            <h2>İletişim Sayfası İçerik Düzenleyici</h2>
+            <small>
+                
+            </small>
+        </div>
+        <div class="box-divider m-0"></div>
+        <div class="box-body">
+            <form asp-action="ContactPageUpdate" enctype="multipart/form-data">
+                <input asp-for="@Model.ContactPage.Id" value="@Model.ContactPage.Id" hidden />
+
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Firma Adresi</label>
+                    <div class="col-sm-4">
+                        <input asp-for="@Model.ContactPage.Address" type="text" class="form-control" placeholder="Zorunlu Alan*">
+                    </div>
+                    <label class="col-sm-2 form-control-label">Firma Adresi 2. Satır</label>
+                    <div class="col-sm-4">
+                        <input asp-for="@Model.ContactPage.Address2" type="text" class="form-control" placeholder="Zorunlu Alan*">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">E-Mail 1</label>
+                    <div class="col-sm-4">
+                        <input asp-for="@Model.ContactPage.Email1" type="email" class="form-control" placeholder="Zorunlu Alan*">
+                    </div>
+                    <label class="col-sm-2 form-control-label">E-Mail 2</label>
+                    <div class="col-sm-4">
+                        <input asp-for="@Model.ContactPage.Email2" type="email" class="form-control" placeholder="Zorunlu Alan*">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Telefon 1</label>
+                    <div class="col-sm-4">
+                        <input asp-for="@Model.ContactPage.Phone1" type="text" class="form-control" placeholder="Zorunlu Alan*">
+                    </div>
+                    <label class="col-sm-2 form-control-label">Telefon 2</label>
+                    <div class="col-sm-4">
+                        <input asp-for="@Model.ContactPage.Phone2" type="text" class="form-control" placeholder="Zorunlu Alan*">
+                    </div>
+                </div>
+                
+                <div class="form-group row m-t-md">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary pointer" style="cursor: pointer;">Düzenle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section LastJs{
+   
+}

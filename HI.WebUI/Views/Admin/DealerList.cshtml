@@ -1,0 +1,28 @@
+﻿@model DealerListViewModel
+@{
+    ViewData["Title"] = "Admin Home Page";
+    ViewData["Description"] = "Admin Home Page";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div class="padding row">
+    <div class="box">
+        <div class="box-header">
+            <h2>Ana Kategori Ekle</h2>
+            <small>* Yeni bir Ana kategori eklemek için bu alanı kullanın. Bu alana eklene her bir ana kategori alt kısımda gözükmektedir.</small>
+        </div>
+        <div class="box-divider m-0"></div>
+        <div class="box-body p-v-md">
+            <form asp-action="MainCategoryAdd">
+                <div class="row row-sm">
+                    <div class="col-xs-3">
+                        <input asp-for="@Model.MainCategory.Name" type="text" class="form-control" placeholder="Ana Kategori İsmi">
+                    </div>
+                    <div class="col-xs-3">
+                        <button class="btn btn-primary pointer" type="submit">Ekle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

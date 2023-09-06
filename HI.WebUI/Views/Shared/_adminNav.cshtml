@@ -51,6 +51,11 @@
                         </ul>
                     </li>
                     <li>
+                        <a asp-action="DealerList" asp-controller="Admin">
+                            <span class="nav-text">Markalar</span>
+                        </a>
+                    </li>
+                    <li>
                         <a asp-controller="Admin" asp-action="CategoryList">
                             <span class="nav-text">Kategori Ayarları</span>
                         </a>
@@ -61,25 +66,16 @@
                     </li>
 
                     <li>
-                        <a href="/Admin">
+                        <a asp-controller="Admin" asp-action="AboutUpdate">
                             <span class="nav-text">Kurumsal</span>
                         </a>
                     </li>
                     <li>
-                        <a href="/Admin">
+                        <a asp-controller="Admin" asp-action="ContactPageUpdate">
                             <span class="nav-text">İletişim</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="/Admin">
-                            <span class="nav-text">Anasayfa Slider</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/Admin">
-                            <span class="nav-text">Markalar</span>
-                        </a>
-                    </li>
+
                     <br />
                     <li>
                         <a asp-controller="Login" asp-action="Logout">

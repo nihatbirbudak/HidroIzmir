@@ -31,7 +31,7 @@
                         <div class="tab @if(Model.Name == "hakkimizda"){@activeTab}" id="tab-one">
                             <div class="text-content">
                                 <div class="text">
-                                    @Model.About.Abouts
+                                    @Html.Raw(Model.About.Abouts)
                                 </div>
                             </div>
                         </div>
@@ -39,7 +39,7 @@
                         <div class="tab @if(Model.Name == "misyonumuz"){@activeTab}" id="tab-two">
                             <div class="text-content">
                                 <div class="text">
-                                    @Model.About.Mission
+                                    @Html.Raw(Model.About.Mission)
                                 </div>
                             </div>
                         </div>
@@ -48,7 +48,7 @@
                         <div class="tab @if(Model.Name == "vizyonumuz"){@activeTab}" id="tab-three">
                             <div class="text-content">
                                 <div class="text">
-                                    @Model.About.Vission
+                                    @Html.Raw(Model.About.Vission)
                                 </div>
                             </div>
                         </div>

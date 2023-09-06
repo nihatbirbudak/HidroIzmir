@@ -1,0 +1,78 @@
+﻿@model AboutUpdateViewModel
+@{
+    ViewData["Title"] = "Admin Ürün Ekle";
+    ViewData["Description"] = "Admin Ürün Ekle";
+    Layout = "~/Views/Shared/_adminLayout.cshtml";
+}
+
+<div class="col-md-12 mt-2">
+    <div class="box">
+        <div class="box-header">
+            <h2>Kurumsal Sayfa İçerik Düzenleme</h2>
+            <small>
+                
+            </small>
+        </div>
+        <div class="box-divider m-0"></div>
+        <div class="box-body">
+            <form asp-action="AboutUpdate"  enctype="multipart/form-data">
+                <input asp-for="@Model.About.Id" value="@Model.About.Id" hidden />
+                <!--1. Bölüm-->
+                <br />
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Hakkımızda</label>
+                    <div class="col-sm-10">
+                        <textarea asp-for="@Model.About.Abouts" id="editor1" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <!--2. Bölüm-->
+                <br />
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Vizyonumuz</label>
+                    <div class="col-sm-10">
+                        <textarea asp-for="@Model.About.Vission" id="editor2" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <!--1. Bölüm-->
+                <br />
+                <div class="form-group row">
+                    <label class="col-sm-2 form-control-label">Misyonumuz</label>
+                    <div class="col-sm-10">
+                        <textarea asp-for="@Model.About.Mission" id="editor3" class="form-control"></textarea>
+                    </div>
+                </div>
+
+                <div class="form-group row m-t-md">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-primary" style="cursor: pointer;">Düzenle</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section LastJs{
+    <script>
+        $(document).ready(function () {
+
+            ClassicEditor
+                .create(document.querySelector('#editor1'))
+                .catch(error => {
+                    console.error(error);
+                });
+            ClassicEditor
+                .create(document.querySelector('#editor2'))
+                .catch(error => {
+                    console.error(error);
+                });
+            ClassicEditor
+                .create(document.querySelector('#editor3'))
+                .catch(error => {
+                    console.error(error);
+                });
+        });
+    </script>
+    }

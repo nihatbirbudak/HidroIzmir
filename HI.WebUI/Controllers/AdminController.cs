@@ -17,12 +17,18 @@ namespace HI.WebUI.Controllers
         private readonly ICategoryService categoryService;
         private readonly IimagePathService imagePathService;
         private readonly IMainCategoryService mainCategoryService;
+        private readonly IAboutService aboutService;
+        private readonly IContactPageService contactPageService;
+        private readonly IDealersService dealersService;
         public AdminController(IContactService contactService,
             IUserService userService,
             IProductService productService,
             ICategoryService categoryService,
             IimagePathService imagePathService,
-            IMainCategoryService mainCategoryService) 
+            IMainCategoryService mainCategoryService,
+            IAboutService aboutService,
+            IContactPageService contactPageService,
+            IDealersService dealersService) 
         {
             this.contactService = contactService;
             this.productService = productService;
@@ -30,6 +36,9 @@ namespace HI.WebUI.Controllers
             this.categoryService = categoryService;
             this.imagePathService = imagePathService;
             this.mainCategoryService = mainCategoryService;
+            this.aboutService = aboutService;
+            this.contactPageService = contactPageService;
+            this.dealersService = dealersService;
         }
         public ActionResult Index(string filter, int page = 1)
         {
@@ -60,6 +69,54 @@ namespace HI.WebUI.Controllers
             model.Contact = contactService.getEntity(id);
             return View(model);
         }
+
+        #region Page
+
+        public IActionResult AboutUpdate()
+        {
+            var model = new AboutUpdateViewModel();
+            model.User = CurrentUser;
+            model.About = aboutService.getEntity(0);
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult AboutUpdate(About about)
+        {
+            aboutService.updateEntity(about);
+            return RedirectToAction("AboutUpdate");
+        }
+
+        public IActionResult ContactPageUpdate()
+        {
+            var model = new ContactPageUpdateViewMode();
+            model.User = CurrentUser;
+            model.ContactPage = contactPageService.getEntity();
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult ContactPageUpdate(ContactPage contactPage)
+        {
+            contactPageService.updateEntity(contactPage);
+            return RedirectToAction("ContactPageUpdate");
+        }
+
+        public IActionResult DealerList()
+        {
+            var model = new DealerListViewModel();
+            model.User = CurrentUser;
+            model.Dealers = dealersService.getAll();
+            return View(model);
+        }
+        [HttpPost]
+        public IActionResult DealerAdd(Dealer dealer, IFormFile file)
+        {
+
+            return RedirectToAction("DealerList");
+        }
+     
+
+
+        #endregion
 
 
         #region Product
@@ -176,6 +233,10 @@ namespace HI.WebUI.Controllers
                 foreach (var item in file)
                 {
                     var product = productService.getEntity(id);
+                    if (file[0] == item)
+                    {
+                        
+                    }
                     AddFile(item, product);
                 }
             }
@@ -232,7 +293,7 @@ namespace HI.WebUI.Controllers
             {
                 categoryService.deleteEntity(id);
             }
-            return RedirectToAction("ProductDetail");
+            return RedirectToAction("CategoryList");
         }
 
         #endregion
